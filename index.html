@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="lo" class="dark">
 <head>
 <meta charset="UTF-8">
 <meta id="viewportMeta" name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>TOH Shop — ຮ້ານຂາຍພາແນລ Free Fire</title>
 <meta name="description" content="">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Lao:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -75,19 +76,6 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 #heroBannerOverlay{ display:none; }
 #heroBannerOverlay.show{ display:block; background:linear-gradient(180deg, rgba(11,15,25,.55) 0%, rgba(11,15,25,.85) 60%, rgba(11,15,25,.96) 100%); }
 @media (max-width: 640px){
-  #view-admin h2{ font-size:1.05rem; margin-bottom:.75rem; }
-  #view-admin .admincontent p.text-2xl, #view-admin .admincontent .text-3xl{ font-size:1.15rem; }
-  #view-admin .admincontent .text-xs{ font-size:10px; }
-  #view-admin .admincontent input, #view-admin .admincontent select, #view-admin .admincontent textarea{ font-size:13px; padding:.5rem .65rem; }
-  #view-admin .admincontent button{ font-size:12px; }
-  #view-admin .admincontent .p-6{ padding:.85rem; }
-  #view-admin .admincontent .p-5{ padding:.75rem; }
-  #view-admin table{ font-size:11px; }
-  #view-admin table th, #view-admin table td{ padding:.4rem .5rem; }
-  #productFormModal .p-6, #userDetailModal .p-6{ padding:1rem; }
-  #productFormModal label, #userDetailModal label{ font-size:10px; }
-  #productFormModal input, #productFormModal select, #productFormModal textarea{ font-size:13px; padding:.5rem .65rem; }
-  #productFormModal button, #userDetailModal button{ font-size:12px; }
 }
 </style>
 </head>
@@ -97,7 +85,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 <div id="loadOverlay" class="fixed inset-0 z-[999] bg-ink-950 flex items-center justify-center">
   <div class="text-center">
     <div class="w-14 h-14 mx-auto border-4 border-plasma-500/30 border-t-plasma-500 rounded-full animate-spin"></div>
-    <p class="mt-4 font-display text-mist-300 tracking-widest text-sm">ກຳລັງໂຫຼດ Shop…</p>
+    <p class="mt-4 font-display text-mist-300 tracking-widest text-sm">ກຳລັງໂຫຼດ TOH Shop…</p>
   </div>
 </div>
 
@@ -110,8 +98,8 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 gap-4">
       <a href="#" onclick="go('home')" class="flex items-center gap-2 shrink-0">
-        <div class="site-logo-slot w-9 h-9 rounded-lg bg-gradient-to-br from-plasma-500 to-ion-500 flex items-center justify-center clip-corner-sm overflow-hidden"><i class="fa-solid fa-vault text-ink-950 text-sm"></i></div>
-        <span class="site-name-text font-display font-700 text-xl tracking-wide text-mist-100">VAULT<span class="text-plasma-400">PLAY</span></span>
+        <div class="site-logo-slot w-9 h-9 rounded-lg bg-gradient-to-br from-plasma-500 to-ion-500 flex items-center justify-center clip-corner-sm overflow-hidden"><i class="fa-solid fa-gamepad text-ink-950 text-sm"></i></div>
+        <span class="site-name-text font-display font-700 text-xl tracking-wide text-mist-100">TOH<span class="text-plasma-400"> Shop</span></span>
       </a>
       <nav class="hidden md:flex items-center gap-1 font-display text-[15px] tracking-wide">
         <button onclick="go('home')" class="nav-link px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200">ໜ້າຫຼັກ</button>
@@ -122,7 +110,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
       <div class="flex-1 max-w-md hidden lg:block">
         <div class="relative">
           <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-mist-400 text-sm"></i>
-          <input id="navSearch" type="text" placeholder="ຄົ້ນຫາໄອດີເກມ, ໝວດໝູ່..." class="w-full bg-ink-800 border border-ink-600 rounded-full pl-9 pr-4 py-2 text-sm text-mist-100 placeholder-mist-400 focus:outline-none focus:ring-2 focus:ring-plasma-500/60" onkeydown="if(event.key='Enter'){searchFromNav()}">
+          <input id="navSearch" type="text" placeholder="ຄົ້ນຫາສິນຄ້າ, ໝວດໝູ່..." class="w-full bg-ink-800 border border-ink-600 rounded-full pl-9 pr-4 py-2 text-sm text-mist-100 placeholder-mist-400 focus:outline-none focus:ring-2 focus:ring-plasma-500/60" onkeydown="if(event.key='Enter'){searchFromNav()}">
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -147,14 +135,10 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
         <button onclick="mmDashTab('profile')" class="text-left px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200"><i class="fa-solid fa-id-card w-5"></i> ໂປຣໄຟລ໌</button>
         <button onclick="mmDashTab('wallet')" class="text-left px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200"><i class="fa-solid fa-wallet w-5"></i> ກະເປົາເງິນ / ເຕີມເງິນ</button>
         <button onclick="mmDashTab('orders')" class="text-left px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200"><i class="fa-solid fa-receipt w-5"></i> ປະຫວັດການສັ່ງຊື້</button>
-        <button onclick="mmDashTab('mycards')" class="text-left px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200"><i class="fa-solid fa-key w-5"></i> ລະຫັດທີຊື້ມາ</button>
+        <button onclick="mmDashTab('mycards')" class="text-left px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200"><i class="fa-solid fa-key w-5"></i> ລາຍການຊື້ສຳເລັດ</button>
         <button onclick="mmDashTab('favorites')" class="text-left px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200"><i class="fa-solid fa-heart w-5"></i> ລາຍການທີ່ມັກ</button>
         <button onclick="mmDashTab('notifications')" class="text-left px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200"><i class="fa-solid fa-bell w-5"></i> ການແຈ້ງເຕືອນ</button>
         <button onclick="mmDashTab('settings')" class="text-left px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200"><i class="fa-solid fa-gear w-5"></i> ປ່ຽນລະຫັດຜ່ານ</button>
-        <div class="pt-1 mt-1 border-t border-ink-700"><button onclick="mmLogout()" class="text-left w-full px-3 py-2 rounded-md hover:bg-red-500/10 text-red-400"><i class="fa-solid fa-right-from-bracket w-5"></i> ອອກຈາກລະບົບ</button></div>
-      </div>
-      <div id="mobileMenuAdminItems" class="hidden flex-col gap-1 border-t border-ink-700 mt-1 pt-1">
-        <button onclick="mmAdminGo()" class="text-left px-3 py-2 rounded-md hover:bg-ink-800 text-mist-200"><i class="fa-solid fa-user-shield w-5"></i> Admin Panel</button>
         <div class="pt-1 mt-1 border-t border-ink-700"><button onclick="mmLogout()" class="text-left w-full px-3 py-2 rounded-md hover:bg-red-500/10 text-red-400"><i class="fa-solid fa-right-from-bracket w-5"></i> ອອກຈາກລະບົບ</button></div>
       </div>
     </div>
@@ -175,17 +159,17 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ion-500/10 border border-ion-500/30 text-ion-400 text-xs font-mono tracking-wider mb-6">
-            <span class="w-1.5 h-1.5 bg-ion-400 rounded-full animate-pulse"></span> LIVE MARKETPLACE · <span id="heroLiveCount">0</span> ໄອດີພ້ອມຂາຍ
+            <span class="w-1.5 h-1.5 bg-ion-400 rounded-full animate-pulse"></span> TOH SHOP · <span id="heroLiveCount">0</span> ສິນຄ້າພ້ອມຂາຍ
           </span>
           <h1 class="font-display font-700 text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-mist-100">
-            ບໍລິການຂາຍໄອດີ FREE FIRE ແລະອື້ນໆ<br>
-            <span class="bg-gradient-to-r from-plasma-400 via-plasma-300 to-ion-400 bg-clip-text text-transparent">ມີທັງໄຟລ໌ຂອງ Free Fire</span>
+            ພາແນລ Free Fire<br>
+            <span class="bg-gradient-to-r from-plasma-400 via-plasma-300 to-ion-400 bg-clip-text text-transparent">🔥 ຮ້ານຂາຍພາແນລ #1 ລາວ</span>
           </h1>
-          <p class="mt-5 text-mist-300 text-base sm:text-lg max-w-xl"></p>
+          <p class="mt-5 text-mist-300 text-base sm:text-lg max-w-xl">ຮ້ານຂາຍພາແນລ Free Fire ອອນລາຍ ລາຄາຖືກ ຊ່ວຍເລ່ນ 24/7 ໂດຍທີມ TOH Shop</p>
           <div class="mt-8 flex flex-wrap gap-3">
             <div class="relative flex-1 min-w-[240px]">
               <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-mist-400"></i>
-              <input id="heroSearch" type="text" placeholder="ຄົ້ນຫາ ເຊັ່ນ: Valorant, Mobile Legends…" class="w-full bg-ink-800/80 border border-ink-600 rounded-full pl-11 pr-4 py-3.5 text-mist-100 placeholder-mist-400 focus:outline-none focus:ring-2 focus:ring-plasma-500/60" onkeydown="if(event.key='Enter'){heroSearchGo()}">
+              <input id="heroSearch" type="text" placeholder="ຄົ້ນຫາ ເຊັ່ນ: Free Fire Panel, Skin…" class="w-full bg-ink-800/80 border border-ink-600 rounded-full pl-11 pr-4 py-3.5 text-mist-100 placeholder-mist-400 focus:outline-none focus:ring-2 focus:ring-plasma-500/60" onkeydown="if(event.key='Enter'){heroSearchGo()}">
             </div>
             <button onclick="heroSearchGo()" class="px-6 py-3.5 rounded-full bg-plasma-500 hover:bg-plasma-600 transition font-display font-600 tracking-wide clip-corner-sm">ຄົ້ນຫາ</button>
           </div>
@@ -194,7 +178,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
             <div class="w-px h-6 bg-ink-700"></div>
             <div><span class="text-mist-100 font-700 text-lg" id="statOrders">0</span> ອໍເດີສຳເລັດ</div>
             <div class="w-px h-6 bg-ink-700"></div>
-            <div><span class="text-mist-100 font-700 text-lg" id="statProducts">0</span> ໄອດີໃນຄັງ</div>
+            <div><span class="text-mist-100 font-700 text-lg" id="statProducts">0</span> ສິນຄ້າໃນຄັງ</div>
           </div>
         </div>
         <div class="relative hidden lg:block">
@@ -215,9 +199,9 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
     <div class="rounded-2xl bg-gradient-to-r from-plasma-600/15 via-ink-800 to-ion-500/10 border border-ink-700 p-5 clip-corner">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div class="promo-badge"><div class="pb-ic text-green-400"><i class="fa-solid fa-shield-halved"></i></div><p class="text-xs font-display text-mist-200">ປອດໄພ 100%</p></div>
-        <div class="promo-badge"><div class="pb-ic text-ion-400"><i class="fa-solid fa-bolt"></i></div><p class="text-xs font-display text-mist-200">ກົດຊື້ຮັບໄອດີທັນທີ</p></div>
-        <div class="promo-badge"><div class="pb-ic text-plasma-400"><i class="fa-solid fa-handshake"></i></div><p class="text-xs font-display text-mist-200">ບໍລິການດີ ໃສ່ໃຈລູກຄ້າ</p></div>
-        <div class="promo-badge"><div class="pb-ic text-rarity-legendary"><i class="fa-solid fa-tags"></i></div><p class="text-xs font-display text-mist-200">ລາຄາຄຸ້ມທຸກລາຍການ</p></div>
+        <div class="promo-badge"><div class="pb-ic text-ion-400"><i class="fa-solid fa-bolt"></i></div><p class="text-xs font-display text-mist-200">ຮັບພາແນລທັນທີ</p></div>
+        <div class="promo-badge"><div class="pb-ic text-plasma-400"><i class="fa-solid fa-handshake"></i></div><p class="text-xs font-display text-mist-200">ຊ່ວຍເລ່ນ 24/7</p></div>
+        <div class="promo-badge"><div class="pb-ic text-rarity-legendary"><i class="fa-solid fa-tags"></i></div><p class="text-xs font-display text-mist-200">Free Fire ທຸກຮູບແບບ</p></div>
       </div>
     </div>
   </div>
@@ -268,12 +252,12 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 
   <div id="adminContact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="rounded-2xl border border-ink-700 bg-gradient-to-r from-ink-800 to-ink-850 p-6 flex flex-col sm:flex-row items-center gap-5 clip-corner">
-      <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=VaultPlayAdmin&backgroundColor=1B2233" class="w-16 h-16 rounded-full border-2 border-plasma-500/50 shrink-0" alt="admin avatar">
+      <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=TOHShopAdmin&backgroundColor=1B2233" class="w-16 h-16 rounded-full border-2 border-plasma-500/50 shrink-0" alt="admin avatar">
       <div class="flex-1 text-center sm:text-left">
         <p class="font-display text-mist-100 font-600">ຕິດຕໍ່ແອດມິນດ່ວນ</p>
         <p class="text-mist-400 text-sm">ມີບັນຫາການຊື້ ຫຼື ຕ້ອງການຄວາມຊ່ວຍເຫຼືອ? ແຊດຫາທີມງານໄດ້ທັນທີ</p>
       </div>
-      <a href="https://wa.me/8562094357757" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-green-500 hover:bg-green-600 text-white font-display font-600 shrink-0"><i class="fa-brands fa-whatsapp mr-1"></i> ແຊດຫາແອດມິນ</a>
+      <a href="https://wa.me/8562094357757" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-green-500 hover:bg-green-600 text-white font-display font-600 shrink-0"><i class="fa-brands fa-whatsapp mr-1"></i> ແຊັດຫາແອັດມິນ</a>
     </div>
   </div>
 </section>
@@ -287,7 +271,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
         <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-4">
           <label class="text-xs font-display tracking-wide text-mist-400 uppercase">ຄົ້ນຫາ</label>
           <div class="relative mt-2"><i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-mist-400 text-sm"></i>
-            <input id="filterSearch" type="text" placeholder="ຊື່ໄອດີ, ເກມ..." class="w-full bg-ink-900 border border-ink-600 rounded-lg pl-9 pr-3 py-2 text-sm text-mist-100 focus:outline-none focus:ring-2 focus:ring-plasma-500/50" oninput="renderProductList()">
+            <input id="filterSearch" type="text" placeholder="ຊື່ສິນຄ້າ, ເກມ..." class="w-full bg-ink-900 border border-ink-600 rounded-lg pl-9 pr-3 py-2 text-sm text-mist-100 focus:outline-none focus:ring-2 focus:ring-plasma-500/50" oninput="renderProductList()">
           </div>
         </div>
         <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-4">
@@ -324,7 +308,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 
   <div id="auth-login" class="tab-panel active">
     <h2 class="font-display font-700 text-2xl text-mist-100 mb-1">ເຂົ້າສູ່ລະບົບ</h2>
-    <p class="text-mist-400 text-sm mb-6">ຍິນດີຕ້ອນຮັບກັບຄືນສູ່ VaultPlay</p>
+    <p class="text-mist-400 text-sm mb-6">ຍິນດີຕ້ອນຮັບກັບຄືນສູ່ TOH Shop</p>
     <div class="space-y-4">
       <div>
         <label class="text-xs font-display text-mist-400 uppercase">ຊື່ຜູ້ໃຊ້</label>
@@ -396,7 +380,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 <section id="view-dashboard" class="view">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="grid lg:grid-cols-[260px_1fr] gap-8">
-      <aside class="bg-ink-800/60 border border-ink-700 rounded-xl p-5 h-fit">
+      <aside id="dashAside" class="bg-ink-800/60 border border-ink-700 rounded-xl p-5 h-fit">
         <div class="flex items-center gap-3 pb-4 mb-4 border-b border-ink-700">
           <img id="dashAvatar" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=guest" class="w-12 h-12 rounded-full border border-plasma-500/40">
           <div class="flex-1 min-w-0">
@@ -405,11 +389,11 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
             <p class="text-xs text-ion-400 font-mono mt-0.5">₭ <span id="dashBalanceMini">0</span></p>
           </div>
         </div>
-        <nav id="dashNavList" class="space-y-1 font-display text-sm hidden">
+        <nav id="dashNavList" class="space-y-1 font-display text-sm">
           <button onclick="dashTab('profile')" data-dashtab="profile" class="dashnav w-full text-left px-3 py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-id-card w-5"></i> ໂປຣໄຟລ໌</button>
           <button onclick="dashTab('wallet')" data-dashtab="wallet" class="dashnav w-full text-left px-3 py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-wallet w-5"></i> ກະເປົາເງິນ / ເຕີມເງິນ</button>
           <button onclick="dashTab('orders')" data-dashtab="orders" class="dashnav w-full text-left px-3 py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-receipt w-5"></i> ປະຫວັດການສັ່ງຊື້</button>
-          <button onclick="dashTab('mycards')" data-dashtab="mycards" class="dashnav w-full text-left px-3 py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-key w-5"></i> ເບິ່ງລະຫັດທີຊື້ມາ</button>
+          <button onclick="dashTab('mycards')" data-dashtab="mycards" class="dashnav w-full text-left px-3 py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-key w-5"></i> ສິນຄ້າຊື້ແລ້ວ</button>
           <button onclick="dashTab('favorites')" data-dashtab="favorites" class="dashnav w-full text-left px-3 py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-heart w-5"></i> ລາຍການທີ່ມັກ</button>
           <button onclick="dashTab('notifications')" data-dashtab="notifications" class="dashnav w-full text-left px-3 py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-bell w-5"></i> ການແຈ້ງເຕືອນ</button>
           <button onclick="dashTab('settings')" data-dashtab="settings" class="dashnav w-full text-left px-3 py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-gear w-5"></i> ປ່ຽນລະຫັດຜ່ານໃໝ່</button>
@@ -417,6 +401,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
         </nav>
       </aside>
       <div>
+        <button id="dashBackBtn" onclick="dashBackToMenu()" class="hidden mb-4 inline-flex items-center gap-2 text-mist-300 hover:text-mist-100 font-display text-sm"><i class="fa-solid fa-arrow-left"></i> ກັບຄືນ</button>
         <div id="dt-profile" class="dashcontent">
           <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ໂປຣໄຟລ໌ຂອງຂ້ອຍ</h2>
           <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6 space-y-4 max-w-lg">
@@ -450,6 +435,11 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
       <button onclick="pickTopupAmount(1000000, false)" class="topup-amt-btn px-3 py-2.5 rounded-lg bg-ink-900 border border-ink-600 text-mist-200 font-mono text-sm hover:border-plasma-500">₭1,000,000</button>
       <div class="relative"><input id="customTopupAmount" type="number" placeholder="ກຳນົດເອງ" oninput="pickTopupAmount(this.value, true)" class="w-full h-full px-3 py-2.5 rounded-lg bg-ink-900 border border-ink-600 text-mist-100 font-mono text-sm placeholder-mist-400 focus:outline-none focus:border-plasma-500"></div>
     </div>
+    <div id="topupLockedNotice" class="hidden mb-4 px-4 py-2.5 rounded-lg bg-ion-500/10 border border-ion-500/30 text-ion-400 text-xs font-display"><i class="fa-solid fa-lock mr-1.5"></i>ມີ QR ທີ່ກຳລັງລໍຖ້າຢູ່ແລ້ວ ກະລຸນາຊຳລະ ຫຼື ລໍຖ້າໝົດເວລາກ່ອນຈຶ່ງເລືອກຈຳນວນເງິນໃໝ່</div>
+    <div id="topupConfirmArea" class="hidden mb-4 flex items-center justify-between gap-3 px-4 py-3 rounded-lg bg-ink-900 border border-plasma-500/40">
+      <p class="text-sm text-mist-200">ຈຳນວນທີ່ເລືອກ: <span id="topupConfirmAmount" class="font-mono text-ion-400 font-700">₭ 0</span></p>
+      <button onclick="confirmTopupAmount()" class="px-4 py-2 rounded-lg bg-plasma-500 hover:bg-plasma-600 text-white font-display font-600 text-sm"><i class="fa-solid fa-check mr-1"></i>ຢືນຢັນ</button>
+    </div>
     <div id="topupQrBlock" class="hidden">
       <div class="border-t border-ink-700 pt-5 grid sm:grid-cols-2 gap-6 items-start">
         <div class="text-center">
@@ -460,6 +450,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
         <div>
           <label class="text-xs font-display text-mist-400 uppercase">ອັບໂຫຼດສະລິບການໂອນເງິນ</label>
           <input id="topupSlipInput" type="file" accept="image/*" class="mt-2 block w-full text-sm text-mist-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-ink-700 file:text-mist-100 hover:file:bg-ink-600">
+          <p class="mt-2 text-xs text-mist-400">ບໍ່ຮູ້ວິທີອັບໂຫຼດສະລິບ? <a href="https://wa.me/8562094357757" target="_blank" rel="noopener" class="text-ion-400 hover:underline font-600">ທັກຫາແອດມິນ</a> ແອດມິນຈະສອນໃຫ້</p>
           <img id="topupSlipPreview" class="hidden mt-3 max-h-40 rounded-lg border border-ink-700">
           <div class="flex items-center justify-between mt-6">
             <span class="flex items-center gap-1.5 text-mist-400 font-mono text-sm"><i class="fa-regular fa-clock"></i> <span id="topupTimer2">15:00</span></span>
@@ -475,8 +466,8 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 <div id="dt-orders" class="dashcontent hidden"><h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ປະຫວັດການສັ່ງຊື້</h2><div id="orderHistoryList" class="space-y-3"></div></div>
 
 <div id="dt-mycards" class="dashcontent hidden">
-  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ເບິ່ງລະຫັດທີຊື້ມາ</h2>
-  <p class="text-mist-400 text-sm -mt-3 mb-5">ລະຫັດ / ຂໍ້ມູນໄອດີເກມທີ່ທ່ານໄດ້ຊື້ ຫຼັງຈາກອໍເດີຖືກຢືນຢັນແລ້ວ</p>
+  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ສິນຄ້າຊື້ແລ້ວ</h2>
+  <p class="text-mist-400 text-sm -mt-3 mb-5">ລະຫັດ / ຂໍ້ມູນທ່ານໄດ້ຊື້ ຫຼັງຈາກອໍເດີຖືກຢືນຢັນແລ້ວ</p>
   <div id="myCardsList" class="grid sm:grid-cols-2 gap-4"></div>
 </div>
 
@@ -518,7 +509,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
       <div id="pm-bank" class="hidden">
         <div class="grid sm:grid-cols-2 gap-4 text-sm">
           <div class="bg-ink-900 rounded-lg p-4 border border-ink-700"><p class="text-mist-400 text-xs uppercase font-display">ທະນາຄານ</p><p class="text-mist-100 mt-1">BCEL One / ທະນາຄານການຄ້າຕ່າງປະເທດລາວ</p></div>
-          <div class="bg-ink-900 rounded-lg p-4 border border-ink-700"><p class="text-mist-400 text-xs uppercase font-display">ຊື່ບັນຊີ</p><p class="text-mist-100 mt-1">VAULTPLAY MARKET CO., LTD</p></div>
+          <div class="bg-ink-900 rounded-lg p-4 border border-ink-700"><p class="text-mist-400 text-xs uppercase font-display">ຊື່ບັນຊີ</p><p class="text-mist-100 mt-1">TOH SHOP</p></div>
           <div class="bg-ink-900 rounded-lg p-4 border border-ink-700"><p class="text-mist-400 text-xs uppercase font-display">ເລກບັນຊີ</p><p class="text-mist-100 mt-1 font-mono">120-1-00-94357757-0</p></div>
           <div class="bg-ink-900 rounded-lg p-4 border border-ink-700"><p class="text-mist-400 text-xs uppercase font-display">ຍອດເງິນ</p><p class="text-mist-100 mt-1 font-mono" id="bankAmount"></p></div>
         </div>
@@ -534,174 +525,6 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 </section>
 
 
-<section id="view-admin" class="view">
-  <div class="max-w-[1500px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-4 lg:gap-6">
-      <aside class="bg-ink-800/60 border border-ink-700 rounded-xl p-3 sm:p-4 h-fit lg:sticky lg:top-20">
-        <div class="flex items-center gap-2 px-2 pb-3 mb-2 border-b border-ink-700"><i class="fa-solid fa-user-shield text-plasma-400"></i><span class="font-display font-600 text-mist-100 text-sm">Admin Panel</span></div>
-        <nav class="grid grid-cols-2 lg:grid-cols-1 gap-1 font-display text-xs sm:text-sm">
-          <button onclick="adminTab('overview')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-gauge w-4"></i> Dashboard</button>
-          <button onclick="adminTab('products')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-box w-4"></i> ຈັດການສິນຄ້າ</button>
-          <button onclick="adminTab('users')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-users w-4"></i> ຈັດການຜູ້ໃຊ້</button>
-          <button onclick="adminTab('orders')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-cart-shopping w-4"></i> ຈັດການອໍເດີ</button>
-          <button onclick="adminTab('payments')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-money-check-dollar w-4"></i> ຢືນຢັນການຊຳລະ</button>
-          <button onclick="adminTab('topups')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-wallet w-4"></i> ຢືນຢັນການເຕີມເງິນ</button>
-          <button onclick="adminTab('qrsettings')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-qrcode w-4"></i> ຕັ້ງຄ່າ QR ຊຳລະເງິນ</button>
-          <button onclick="adminTab('bgsettings')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-image w-4"></i> ຕັ້ງຄ່າພື້ນຫຼັງເວັບ</button>
-          <button onclick="adminTab('brandsettings')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-shield-halved w-4"></i> ໂລໂກ ແລະ ຊື່ເວັບ</button>
-          <button onclick="adminTab('herobanner')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-panorama w-4"></i> ແບນເນີ Hero</button>
-          <button onclick="adminTab('marqueesettings')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-bullhorn w-4"></i> ຂໍ້ຄວາມແລ່ນ</button>
-          <button onclick="adminTab('notifications')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-bell w-4"></i> ຈັດການແຈ້ງເຕືອນ</button>
-          <div class="col-span-2 lg:col-span-1 pt-2 mt-1 border-t border-ink-700"><button onclick="adminLogout()" class="w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-red-500/10 text-red-400"><i class="fa-solid fa-right-from-bracket w-4"></i> ອອກຈາກລະບົບ</button></div>
-        </nav>
-      </aside>
-      <div>
-        <div id="adm-overview" class="admincontent">
-          <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ພາບລວມລະບົບ</h2>
-          <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
-            <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-5"><p class="text-mist-400 text-xs font-display uppercase">ຜູ້ໃຊ້ທັງໝົດ</p><p id="admStatUsers" class="text-3xl font-display font-700 text-mist-100 mt-1">0</p></div>
-            <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-5"><p class="text-mist-400 text-xs font-display uppercase">ສິນຄ້າທັງໝົດ</p><p id="admStatProducts" class="text-3xl font-display font-700 text-mist-100 mt-1">0</p></div>
-            <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-5"><p class="text-mist-400 text-xs font-display uppercase">ອໍເດີທັງໝົດ</p><p id="admStatOrders" class="text-3xl font-display font-700 text-mist-100 mt-1">0</p></div>
-            <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-5"><p class="text-mist-400 text-xs font-display uppercase">ລາຍຮັບລວມ (₭)</p><p id="admStatRevenue" class="text-3xl font-display font-700 text-ion-400 mt-1">0</p></div>
-          </div>
-          <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-5"><p class="font-display text-mist-100 font-600 mb-4">ອໍເດີຫຼ້າສຸດ</p><div id="admRecentOrders" class="space-y-2 text-sm"></div></div>
-        </div>
-
-
-<div id="adm-products" class="admincontent hidden">
-  <div class="flex items-center justify-between mb-5">
-    <h2 class="font-display font-700 text-2xl text-mist-100">ຈັດການສິນຄ້າ</h2>
-    <button onclick="openProductForm()" class="px-4 py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 text-sm"><i class="fa-solid fa-plus mr-1"></i> ເພີ່ມສິນຄ້າ</button>
-  </div>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl overflow-x-auto">
-    <table class="w-full text-sm">
-      <thead><tr class="text-left text-mist-400 font-display uppercase text-xs border-b border-ink-700"><th class="p-3">ID</th><th class="p-3">ຊື່</th><th class="p-3">ໝວດ</th><th class="p-3">ລາຄາ</th><th class="p-3">ສະຕັອກ</th><th class="p-3">ສະຖານະ</th><th class="p-3">ວັນທີ</th><th class="p-3">ຈັດການ</th></tr></thead>
-      <tbody id="admProductTable"></tbody>
-    </table>
-  </div>
-</div>
-
-<div id="adm-users" class="admincontent hidden">
-  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ຈັດການຜູ້ໃຊ້</h2>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl overflow-x-auto">
-    <table class="w-full text-sm">
-      <thead><tr class="text-left text-mist-400 font-display uppercase text-xs border-b border-ink-700"><th class="p-3">ຊື່ຜູ້ໃຊ້</th><th class="p-3">ອີເມວ</th><th class="p-3">ເບີໂທ</th><th class="p-3">ວັນທີສະໝັກ</th><th class="p-3">ສະຖານະ</th><th class="p-3">ຈັດການ</th></tr></thead>
-      <tbody id="admUserTable"></tbody>
-    </table>
-  </div>
-</div>
-
-<div id="adm-orders" class="admincontent hidden">
-  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ຈັດການອໍເດີ</h2>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl overflow-x-auto">
-    <table class="w-full text-sm">
-      <thead><tr class="text-left text-mist-400 font-display uppercase text-xs border-b border-ink-700"><th class="p-3">ອໍເດີ ID</th><th class="p-3">ຜູ້ຊື້</th><th class="p-3">ສິນຄ້າ</th><th class="p-3">ຍອດ</th><th class="p-3">ສະຖານະ</th><th class="p-3">ຈັດການ</th></tr></thead>
-      <tbody id="admOrderTable"></tbody>
-    </table>
-  </div>
-</div>
-
-<div id="adm-payments" class="admincontent hidden"><h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ຢືນຢັນການຊຳລະເງິນ</h2><div id="admPaymentList" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4"></div></div>
-<div id="adm-topups" class="admincontent hidden"><h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ຢືນຢັນການເຕີມເງິນ</h2><div id="admTopupList" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4"></div></div>
-
-<div id="adm-qrsettings" class="admincontent hidden">
-  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ຕັ້ງຄ່າ QR ຮັບຊຳລະເງິນ</h2>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6 max-w-lg">
-    <p class="text-sm text-mist-400 mb-4">ອັບໂຫຼດຮູບ QR Code ຂອງແອດມິນ (ເຊັ່ນ BCEL One, LDB, ONEPAY) ເພື່ອໃຫ້ລູກຄ້າສະແກນຊຳລະເງິນແທນ QR </p>
-    <div id="adminQrPreview" class="w-48 h-48 rounded-lg bg-ink-900 border border-ink-700 flex items-center justify-center text-mist-400 text-sm mb-4">ຍັງບໍ່ມີ QR</div>
-    <input id="adminQrInput" type="file" accept="image/*" class="block w-full text-sm text-mist-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-ink-700 file:text-mist-100 hover:file:bg-ink-600">
-    <div class="flex gap-2 mt-4">
-      <button onclick="saveAdminQr()" class="px-5 py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 text-sm">ບັນທຶກ QR</button>
-      <button onclick="removeAdminQr()" class="px-5 py-2.5 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-300 font-display font-600 text-sm">ລຶບ QR</button>
-    </div>
-  </div>
-</div>
-
-<div id="adm-bgsettings" class="admincontent hidden">
-  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ຕັ້ງຄ່າພື້ນຫຼັງເວັບ</h2>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6 max-w-lg">
-    <p class="text-sm text-mist-400 mb-4">ອັບໂຫຼດຮູບພື້ນຫຼັງເພື່ອນຳໃຊ້ທົ່ວທັງເວັບໄຊ (ຈະເປັນຄື fixed background ຢູ່ດ້ານຫຼັງຂອງທຸກອົງປະກອບ). ຖ້າຕ້ອງການໂພສຮູບແບນເນີໂຄສະນາ (ເຊັ່ນ Free Fire) ໃຫ້ໄປທີ່ໜ້າ "ແບນເນີ Hero" ແທນ.</p>
-    <div id="adminBgPreview" class="w-full h-40 rounded-lg bg-ink-900 border border-ink-700 flex items-center justify-center text-mist-400 text-sm mb-4 bg-cover bg-center">ຍັງບໍ່ມີພື້ນຫຼັງ (ໃຊ້ຄ່າເລີ່ມຕົ້ນ)</div>
-    <input id="adminBgInput" type="file" accept="image/*" class="block w-full text-sm text-mist-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-ink-700 file:text-mist-100 hover:file:bg-ink-600">
-    <div class="flex gap-2 mt-4">
-      <button onclick="saveAdminBg()" class="px-5 py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 text-sm">ບັນທຶກພື້ນຫຼັງ</button>
-      <button onclick="removeAdminBg()" class="px-5 py-2.5 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-300 font-display font-600 text-sm">ລຶບພື້ນຫຼັງ</button>
-    </div>
-  </div>
-</div>
-
-<div id="adm-brandsettings" class="admincontent hidden">
-  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ໂລໂກ ແລະ ຊື່ເວັບ</h2>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6 max-w-lg">
-    <p class="text-sm text-mist-400 mb-4">ປ່ຽນໂລໂກ ແລະ ຊື່ຮ້ານທີ່ສະແດງຢູ່ໜ້າເວັບ. ຖ້າບໍ່ອັບໂຫຼດໂລໂກ, ລະບົບຈະໃຊ້ໄອຄອນເລີ່ມຕົ້ນ.</p>
-    <label class="text-xs font-display text-mist-400 uppercase">ໂລໂກເວັບ</label>
-    <div class="flex items-center gap-4 mt-2 mb-4">
-      <div id="adminLogoPreview" class="w-16 h-16 rounded-lg bg-ink-900 border border-ink-700 flex items-center justify-center text-mist-400 overflow-hidden shrink-0"></div>
-      <input id="adminLogoInput" type="file" accept="image/*" class="block w-full text-sm text-mist-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-ink-700 file:text-mist-100 hover:file:bg-ink-600">
-    </div>
-    <label class="text-xs font-display text-mist-400 uppercase">ຊື່ຮ້ານ / ຊື່ເວັບ</label>
-    <input id="adminSiteName" type="text" placeholder="VAULTPLAY" class="mt-1.5 w-full bg-ink-900 border border-ink-600 rounded-lg px-4 py-2.5 text-mist-100 focus:outline-none focus:ring-2 focus:ring-plasma-500/50">
-    <div class="flex gap-2 mt-5">
-      <button onclick="saveAdminBrand()" class="px-5 py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 text-sm">ບັນທຶກ</button>
-      <button onclick="resetAdminBrand()" class="px-5 py-2.5 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-300 font-display font-600 text-sm">ໃຊ້ຄ່າເລີ່ມຕົ້ນ</button>
-    </div>
-  </div>
-</div>
-
-<div id="adm-herobanner" class="admincontent hidden">
-  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ແບນເນີ Hero (ໜ້າຫຼັກ)</h2>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6 max-w-lg">
-    <p class="text-sm text-mist-400 mb-4">ອັບໂຫຼດຮູບແບນເນີໂຄສະນາ ຮູບນີ້ຈະສະແດງເປັນພື້ນຫຼັງຂອງສ່ວນ Hero ຢູ່ເທິງສຸດຂອງໜ້າຫຼັກ ໂດຍມີເງົາມືດຄຸມ. ແນະນຳຮູບແນວນອນ ຄວາມລະອຽດສູງ.</p>
-    <div id="adminHeroBannerPreview" class="w-full aspect-[16/9] rounded-lg bg-ink-900 border border-ink-700 flex items-center justify-center text-mist-400 text-sm mb-4 bg-cover bg-center overflow-hidden">ຍັງບໍ່ມີແບນເນີ</div>
-    <input id="adminHeroBannerInput" type="file" accept="image/*" class="block w-full text-sm text-mist-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-ink-700 file:text-mist-100 hover:file:bg-ink-600">
-    <div class="flex gap-2 mt-4">
-      <button onclick="saveAdminHeroBanner()" class="px-5 py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 text-sm">ບັນທຶກແບນເນີ</button>
-      <button onclick="removeAdminHeroBanner()" class="px-5 py-2.5 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-300 font-display font-600 text-sm">ລຶບແບນເນີ</button>
-    </div>
-  </div>
-</div>
-
-<div id="adm-marqueesettings" class="admincontent hidden">
-  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ຂໍ້ຄວາມແລ່ນໂປຣໂມຊັນ</h2>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6 max-w-lg mb-6">
-    <p class="font-display text-mist-100 font-600 mb-1">ແຖບທີ 1</p>
-    <p class="text-sm text-mist-400 mb-4">ຂໍ້ຄວາມນີ້ຈະແລ່ນຢູ່ເທິງສຸດຂອງທຸກໜ້າ. ປະຫວ່າງໄວ້ຫວ່າງເພື່ອເຊື່ອງແຖບນີ້.</p>
-    <label class="text-xs font-display text-mist-400 uppercase">ຂໍ້ຄວາມໂປຣໂມຊັນ</label>
-    <textarea id="marqueeInput" rows="3" placeholder="ຕົວຢ່າງ: 🔥 ໂປຣໂມຊັນພິເສດ! ເຕີມເງິນຄັ້ງທຳອິດຮັບໂບນັດ 10% — ຕິດຕໍ່ແອດມິນດຽວນີ້!" class="mt-1.5 w-full bg-ink-900 border border-ink-600 rounded-lg px-4 py-2.5 text-mist-100"></textarea>
-    <div class="flex gap-2 mt-4">
-      <button onclick="saveMarquee()" class="px-5 py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 text-sm">ບັນທຶກ</button>
-      <button onclick="removeMarquee()" class="px-5 py-2.5 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-300 font-display font-600 text-sm">ລຶບ / ເຊື່ອງແຖບ</button>
-    </div>
-  </div>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6 max-w-lg">
-    <p class="font-display text-mist-100 font-600 mb-1">ແຖບທີ 2 (ຢູ່ເທິງສຸດ, ແຍກຕ່າງຫາກຈາກແຖບທີ 1)</p>
-    <p class="text-sm text-mist-400 mb-4">ປະຫວ່າງໄວ້ຫວ່າງເພື່ອເຊື່ອງແຖບນີ້.</p>
-    <label class="text-xs font-display text-mist-400 uppercase">ຂໍ້ຄວາມໂປຣໂມຊັນ (ແຖບທີ 2)</label>
-    <textarea id="marqueeInput2" rows="3" placeholder="ຕົວຢ່າງ: 📢 ຕິດຕໍ່ແອດມິນເພື່ອຮັບໂປຣໂມຊັນພິເສດ!" class="mt-1.5 w-full bg-ink-900 border border-ink-600 rounded-lg px-4 py-2.5 text-mist-100"></textarea>
-    <div class="flex gap-2 mt-4">
-      <button onclick="saveMarquee2()" class="px-5 py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 text-sm">ບັນທຶກ</button>
-      <button onclick="removeMarquee2()" class="px-5 py-2.5 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-300 font-display font-600 text-sm">ລຶບ / ເຊື່ອງແຖບ</button>
-    </div>
-  </div>
-</div>
-
-<div id="adm-notifications" class="admincontent hidden">
-  <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ຈັດການແຈ້ງເຕືອນ</h2>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-5 max-w-xl">
-    <label class="text-xs font-display text-mist-400 uppercase">ຫົວຂໍ້</label>
-    <input id="broadcastTitle" class="mt-1.5 w-full bg-ink-900 border border-ink-600 rounded-lg px-4 py-2.5 text-mist-100">
-    <label class="text-xs font-display text-mist-400 uppercase mt-4 block">ຂໍ້ຄວາມ</label>
-    <textarea id="broadcastMsg" rows="3" class="mt-1.5 w-full bg-ink-900 border border-ink-600 rounded-lg px-4 py-2.5 text-mist-100"></textarea>
-    <button onclick="broadcastNotification()" class="mt-4 px-5 py-2.5 rounded-lg bg-ion-500 hover:bg-ion-600 text-ink-950 font-display font-600"><i class="fa-solid fa-paper-plane mr-1"></i> ສົ່ງໃຫ້ຜູ້ໃຊ້ທັງໝົດ</button>
-  </div>
-</div>
-
-  </div>
-</div>
-
-
-  </div>
-</section>
 
 
 </main>
@@ -710,9 +533,7 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 <nav id="bottomNav" class="md:hidden">
   <div class="flex items-stretch">
     <button onclick="bnGo('products')" data-bn="products" class="bn-item"><span class="bn-ic"><i class="fa-solid fa-gamepad"></i></span><span>ໜ້າແລກ</span></button>
-    <button onclick="bnGo('orders')" data-bn="orders" class="bn-item"><span class="bn-ic"><i class="fa-solid fa-clock-rotate-left"></i></span><span>ປະຫວັດ</span></button>
-    <button onclick="bnGo('wallet')" data-bn="wallet" class="bn-item"><span class="bn-ic"><i class="fa-solid fa-wallet"></i></span><span>ເຕີມເງິນ</span></button>
-    <button onclick="bnGo('mycards')" data-bn="mycards" class="bn-item"><span class="bn-ic"><i class="fa-solid fa-id-card-clip"></i></span><span>ໄອດີຊື້ແລ້ວ</span></button>
+    <button onclick="bnGo('settings')" data-bn="settings" class="bn-item"><span class="bn-ic"><i class="fa-solid fa-gear"></i></span><span>ການຕັ້ງຄ່າ</span></button>
   </div>
 </nav>
 
@@ -721,8 +542,8 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
     <div>
       <div class="flex items-center gap-2 mb-3">
-        <div class="site-logo-slot w-8 h-8 rounded-lg bg-gradient-to-br from-plasma-500 to-ion-500 flex items-center justify-center clip-corner-sm overflow-hidden"><i class="fa-solid fa-vault text-ink-950 text-xs"></i></div>
-        <span class="site-name-text font-display font-700 text-mist-100">VAULT<span class="text-plasma-400">PLAY</span></span>
+        <div class="site-logo-slot w-8 h-8 rounded-lg bg-gradient-to-br from-plasma-500 to-ion-500 flex items-center justify-center clip-corner-sm overflow-hidden"><i class="fa-solid fa-gamepad text-ink-950 text-xs"></i></div>
+        <span class="site-name-text font-display font-700 text-mist-100">TOH<span class="text-plasma-400"> Shop</span></span>
       </div>
     </div>
     <div><p class="font-display font-600 text-mist-100 mb-3">ໜ້າອື້ນໆ</p>
@@ -732,12 +553,16 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
         <li><button onclick="go('dashboard')" class="hover:text-plasma-400">Dashboard</button></li>
       </ul>
     </div>
-    <div><p class="font-display font-600 text-mist-100 mb-3">ຊ່ວຍເຫຼືອ</p><ul class="space-y-2 text-sm text-mist-400"><li><a href="#adminContact" class="hover:text-plasma-400">ຕິດຕໍ່ແອດມິນ</a></li></ul></div>
+    <div><p class="font-display font-600 text-mist-100 mb-3">ຊ່ວຍເຫຼືອ</p><ul class="space-y-2 text-sm text-mist-400">
+      <li><a href="#adminContact" class="hover:text-plasma-400">ຕິດຕໍ່ແອດມິນ</a></li>
+      <li><a href="https://wa.me/8562094357757" target="_blank" rel="noopener" class="hover:text-green-400"><i class="fa-brands fa-whatsapp mr-1.5"></i>WhatsApp: 020 9435 7757</a></li>
+      <li><a href="https://line.me/ti/p/VkzzeAvuF3" target="_blank" rel="noopener" class="hover:text-green-400"><i class="fa-brands fa-line mr-1.5"></i>Line</a></li>
+    </ul></div>
     <div><p class="font-display font-600 text-mist-100 mb-3"></p>
       <div class="flex gap-3 text-mist-400 text-lg"></div>
     </div>
   </div>
-  <div class="border-t border-ink-700/60 py-5 text-center text-xs text-mist-400">© 2026 VaultPlay Market.</div>
+  <div class="border-t border-ink-700/60 py-5 text-center text-xs text-mist-400">© 2026 TOH Shop — ຮ້ານຂາຍພາແນລ Free Fire</div>
 </footer>
 
 
@@ -752,67 +577,10 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 </div>
 
 
-<div id="userDetailModal" class="hidden fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-  <div class="bg-ink-850 border border-ink-700 rounded-2xl max-w-2xl w-full max-h-[88vh] overflow-y-auto clip-corner">
-    <div id="userDetailModalBody" class="p-6"></div>
-  </div>
-</div>
-
-
-<div id="productFormModal" class="hidden fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-  <div class="bg-ink-850 border border-ink-700 rounded-2xl max-w-lg w-full max-h-[88vh] overflow-y-auto clip-corner">
-    <div class="p-6">
-      <div class="flex items-center justify-between mb-5">
-        <h3 id="pfTitle" class="font-display font-700 text-xl text-mist-100">ເພີ່ມສິນຄ້າ</h3>
-        <button onclick="closeProductForm()" class="text-mist-400 hover:text-mist-100"><i class="fa-solid fa-xmark text-lg"></i></button>
-      </div>
-      <input type="hidden" id="pfId">
-      <div class="space-y-3">
-        <div><label class="text-xs font-display text-mist-400 uppercase">ຊື່ສິນຄ້າ</label><input id="pfName" class="mt-1 w-full bg-ink-900 border border-ink-600 rounded-lg px-3 py-2 text-mist-100"></div>
-        <div class="grid grid-cols-2 gap-3">
-          <div><label class="text-xs font-display text-mist-400 uppercase">ໝວດໝູ່</label><select id="pfCategory" class="mt-1 w-full bg-ink-900 border border-ink-600 rounded-lg px-3 py-2 text-mist-100"></select></div>
-          <div><label class="text-xs font-display text-mist-400 uppercase">ລາຄາ (₭)</label><input id="pfPrice" type="number" class="mt-1 w-full bg-ink-900 border border-ink-600 rounded-lg px-3 py-2 text-mist-100"></div>
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div><label class="text-xs font-display text-mist-400 uppercase">ຄວາມຫາຍາກ</label>
-            <select id="pfRarity" class="mt-1 w-full bg-ink-900 border border-ink-600 rounded-lg px-3 py-2 text-mist-100"><option value="common">Common</option><option value="rare">Rare</option><option value="epic">Epic</option><option value="legendary">Legendary</option></select>
-          </div>
-          <div><label class="text-xs font-display text-mist-400 uppercase">ສະຖານະ</label>
-            <select id="pfStatus" class="mt-1 w-full bg-ink-900 border border-ink-600 rounded-lg px-3 py-2 text-mist-100"><option value="available">ພ້ອມຂາຍ</option><option value="sold">ສິ້ນຄ່າມົດແລ້ວ</option><option value="hidden">ເຊື່ອງ</option></select>
-          </div>
-        </div>
-        <div>
-          <label class="text-xs font-display text-mist-400 uppercase">ຈຳນວນສະຕັອກ (ເຫຼືອຈຳນວນເທົ່າໃດ)</label>
-          <input id="pfStock" type="number" min="0" placeholder="e.g. 5" class="mt-1 w-full bg-ink-900 border border-ink-600 rounded-lg px-3 py-2 text-mist-100">
-          <p class="text-[11px] text-mist-400 mt-1">ຈຳນວນນີ້ຈະສະແດງເປັນ "ເຫຼືອ X ອັນ" ໃຫ້ລູກຄ້າເຫັນ.</p>
-        </div>
-        <div>
-          <label class="text-xs font-display text-mist-400 uppercase">ຮູບສິນຄ້າ (ອັບໂຫຼດຈາກເຄື່ອງ, ເລືອກໄດ້ຫຼາຍຮູບ)</label>
-          <input id="pfImagesFile" type="file" accept="image/*" multiple class="mt-1 block w-full text-sm text-mist-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-ink-700 file:text-mist-100 hover:file:bg-ink-600">
-          <div id="pfImagesPreview" class="flex flex-wrap gap-2 mt-2"></div>
-        </div>
-        <div>
-          <label class="text-xs font-display text-mist-400 uppercase">ລິ້ງວິດີໂອ YouTube (ຄລິບທີ່ລູກຄ້າຈະໄດ້ຮັບຫຼັງຈາກຊື້)</label>
-          <div class="relative mt-1">
-            <i class="fa-brands fa-youtube absolute left-3 top-1/2 -translate-y-1/2 text-red-500"></i>
-            <input id="pfVideoUrl" type="url" placeholder="https://youtube.com/watch?v=..." class="w-full bg-ink-900 border border-ink-600 rounded-lg pl-9 pr-3 py-2 text-mist-100 text-sm">
-          </div>
-          <p class="text-[11px] text-mist-400 mt-1">ວາງລິ້ງ YouTube ຂອງວິດີໂອ — ຫຼັງຈາກລູກຄ້າຊື້ ແລະ ໄດ້ຮັບການຢືນຢັນແລ້ວ, ລິ້ງນີ້ຈະສະແດງໃຫ້ລູກຄ້າກົດເປີດເບິ່ງໄດ້ໃນໜ້າ "ເບິ່ງລະຫັດທີຊື້ມາ".</p>
-        </div>
-        <div><label class="text-xs font-display text-mist-400 uppercase">ລາຍລະອຽດ</label><textarea id="pfDesc" rows="3" class="mt-1 w-full bg-ink-900 border border-ink-600 rounded-lg px-3 py-2 text-mist-100"></textarea></div>
-        <div>
-          <label class="text-xs font-display text-mist-400 uppercase">ລະຫັດໄອດີ / ຂໍ້ມູນທີ່ຈະສົ່ງໃຫ້ລູກຄ້າ (Username:Password ຫຼື Key)</label>
-          <textarea id="pfDeliveryCode" rows="2" placeholder="ຈະສະແດງໃຫ້ລູກຄ້າເຫັນ ຫຼັງຈາກອໍເດີຖືກຢືນຢັນ" class="mt-1 w-full bg-ink-900 border border-ink-600 rounded-lg px-3 py-2 text-mist-100 text-sm font-mono"></textarea>
-        </div>
-        <button onclick="saveProduct()" class="w-full py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 mt-2">ບັນທຶກສິນຄ້າ</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <script>
-const DB_KEYS = { users:'vp_users', admins:'vp_admins', products:'vp_products', orders:'vp_orders', logs:'vp_logs', session:'vp_session', theme:'vp_theme', settings:'vp_settings', topups:'vp_topups' };
+const DB_KEYS = { users:'vp_users', admins:'vp_admins', products:'vp_products', orders:'vp_orders', logs:'vp_logs', session:'vp_session', theme:'vp_theme', settings:'vp_settings', topups:'vp_topups', activeTopups:'vp_active_topups' };
 
 // ---- Firebase (Auth + Firestore) ----
 const firebaseConfig = {
@@ -852,24 +620,92 @@ async function syncAllUsersFromFirestore(){
     return merged;
   }catch(e){ console.warn('Failed to sync user list from Firestore', e); return loadDB(DB_KEYS.users, []); }
 }
-// Admin login here is a separate local-hash system, not Firebase Auth — but
-// the adminResetPassword Cloud Function needs a real Firebase Auth session
-// to check the admin custom claim. This signs the admin into Firebase Auth
-// too (creating that account the first time), using the same email+password
-// they just used to log in locally.
-async function ensureAdminFirebaseAuth(email, password){
+
+
+// ---- Global admin data sync (products, orders, logs, topups, admins, settings) ----
+// Unlike users (synced one doc per user), this is SHOP-WIDE data — one shared
+// doc per key in a single collection, so every device/browser sees the same
+// products, branding, marquee text, orders, etc. that the admin has set.
+const CLOUD_COLLECTION = 'shopData';
+const ADMIN_SYNC_KEYS = ['admins','products','orders','logs','topups','settings'];
+// Tracks Firestore writes that are still in flight. saveDB() fires these
+// without waiting (so the UI stays snappy), but that creates a race: if the
+// admin saves something and then quickly logs out/in or switches tabs
+// (triggering a pull) before the write actually reaches the server — common
+// on a slow/weak signal — the pull would fetch the OLD cloud data and stomp
+// the fresh local save right back to nothing. pullAdminDataFromFirestore
+// waits for any pending write below before it reads, closing that gap.
+const _pendingSyncs = new Map();
+function syncKeyToFirestore(key, val){
+  // Not signed in to Firebase Auth yet (e.g. an anonymous visitor just
+  // browsing the shop, before any admin login happened this session) — the
+  // write is guaranteed to be rejected by the rules, so skip it entirely
+  // instead of firing a doomed network request at every regular customer
+  // who happens to load the page while data is seeding.
+  if(!fbAuth.currentUser) return;
+  const p = fbDb.collection(CLOUD_COLLECTION).doc(key).set({ data: val, updatedAt: nowISO() })
+    .catch(e=>{
+      console.warn('Firestore sync failed for', key, e);
+      // Only alert the admin — an ordinary visitor's browser can trigger
+      // this too (e.g. first-time seeding before anyone has logged in),
+      // and a failed sync there is expected/silent, not something they
+      // need to see or can do anything about.
+      if(SESSION && SESSION.role==='admin' && typeof toastErr === 'function'){
+        toastErr(`ບໍ່ສາມາດ sync "${key}" ຂຶ້ນຄລາວໄດ້ (ອາດຮູບໃຫຍ່ເກີນໄປ)`);
+      }
+    })
+    .finally(()=>{ if(_pendingSyncs.get(key) === p) _pendingSyncs.delete(key); });
+  _pendingSyncs.set(key, p);
+}
+// Pulls every shop-wide doc from Firestore and merges it into the local cache,
+// so changes the admin made on another device/browser show up here too.
+async function pullAdminDataFromFirestore(){
+  if(_pendingSyncs.size) await Promise.all([..._pendingSyncs.values()]);
   try{
-    await fbAuth.signInWithEmailAndPassword(email, password);
-  }catch(e){
-    if(e.code==='auth/user-not-found'){
-      try{ await fbAuth.createUserWithEmailAndPassword(email, password); }
-      catch(e2){ console.warn('Could not create admin Firebase Auth account', e2); }
-    } else if(e.code==='auth/wrong-password'){
-      console.warn('Admin Firebase Auth password does not match the local admin password — password reset button may not work until this is fixed.');
-    } else {
-      console.warn('Admin Firebase Auth sign-in failed', e);
-    }
-  }
+    const snap = await fbDb.collection(CLOUD_COLLECTION).get();
+    snap.docs.forEach(d=>{
+      const key = d.id;
+      if(!ADMIN_SYNC_KEYS.includes(key)) return;
+      const remote = d.data() && d.data().data;
+      if(remote === undefined || remote === null) return;
+      if(Array.isArray(remote)){
+        const local = loadDB(DB_KEYS[key], []);
+        const merged = [...remote];
+        local.forEach(l=>{ if(l && l.id && !merged.some(m=>m.id===l.id)) merged.push(l); });
+        localStorage.setItem(DB_KEYS[key], JSON.stringify(merged));
+      } else {
+        localStorage.setItem(DB_KEYS[key], JSON.stringify(remote));
+      }
+    });
+  }catch(e){ console.warn('Failed to pull admin data from Firestore', e); }
+}
+
+// Resizes/compresses an uploaded image file before it's turned into a
+// base64 string. Without this, a phone photo (2-8MB) blows past Firestore's
+// 1MB-per-document limit and the settings doc silently fails to sync to the
+// cloud — it still looks fine locally, but never reaches other devices.
+function compressImageFile(file, maxDim, quality){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.onerror = ()=>reject(new Error('read failed'));
+    reader.onload = function(ev){
+      const img = new Image();
+      img.onerror = ()=>reject(new Error('image decode failed'));
+      img.onload = function(){
+        let w = img.width, h = img.height;
+        if(w > maxDim || h > maxDim){
+          if(w >= h){ h = Math.round(h * maxDim / w); w = maxDim; }
+          else { w = Math.round(w * maxDim / h); h = maxDim; }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
 }
 
 function loadDB(key, fallback){ try{ const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }catch(e){ return fallback; } }
@@ -878,6 +714,8 @@ function saveDB(key, val){
   if(key === DB_KEYS.users && Array.isArray(val)){
     val.forEach(u=>{ if(u && u.id) syncUserToFirestore(u); });
   }
+  const adminKeyName = Object.keys(DB_KEYS).find(k=>DB_KEYS[k]===key && ADMIN_SYNC_KEYS.includes(k));
+  if(adminKeyName) syncKeyToFirestore(adminKeyName, val);
 }
 function uid(prefix){ return prefix + '_' + Math.random().toString(36).slice(2,9) + Date.now().toString(36).slice(-4); }
 function nowISO(){ return new Date().toISOString(); }
@@ -897,7 +735,7 @@ function genSalt(){ return uid('salt'); }
 async function verifyPassword(password, salt, hash){ return (await hashPassword(password, salt)) === hash; }
 
 const CATEGORIES = [
-  { id:'ff', name:'Free Fire', icon:'fa-fire' },
+  { id:'ff', name:'Free Fire Panel', icon:'fa-fire' }, { id:'ffmax', name:'Free Fire MAX', icon:'fa-fire-flame-curved' },
   { id:'mlbb', name:'Mobile Legends', icon:'fa-chess-knight' },
   { id:'pubg', name:'PUBG Mobile', icon:'fa-gun' },
   { id:'valorant', name:'Valorant', icon:'fa-crosshairs' },
@@ -940,7 +778,7 @@ const api = {
       throw new Error('ສະໝັກສະມາຊິກບໍ່ສຳເລັດ: '+(e.message||e.code));
     }
     const user = { id: cred.user.uid, username, email:'', phone:'', verified:false, favorites:[], balance:0, notifications:[
-      { id: uid('ntf'), title:'ຍິນດີຕ້ອນຮັບສູ່ VaultPlay', message:'ບັນຊີຂອງທ່ານຖືກສ້າງສຳເລັດແລ້ວ.', read:false, at: nowISO() }
+      { id: uid('ntf'), title:'ຍິນດີຕ້ອນຮັບສູ່ TOH Shop', message:'ບັນຊີຂອງທ່ານຖືກສ້າງສຳເລັດແລ້ວ.', read:false, at: nowISO() }
     ], createdAt: nowISO() };
     users.push(user); saveDB(DB_KEYS.users, users);
     await syncUserToFirestore(user);
@@ -972,15 +810,6 @@ const api = {
     log('LOGIN', `User login: ${user.username}`);
     return { token: 'jwt.'+uid('tok'), refreshToken: 'rft.'+uid('tok'), user };
   },
-  async adminLogin({id, password}){
-    const admins = loadDB(DB_KEYS.admins, []);
-    const admin = admins.find(a=> a.email.toLowerCase()===String(id).toLowerCase() || a.phone===id);
-    if(!admin) throw new Error('ບໍ່ພົບບັນຊີແອດມິນ');
-    const ok = await verifyPassword(password, admin.salt, admin.passwordHash);
-    if(!ok) throw new Error('ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ');
-    log('ADMIN_LOGIN', `Admin login: ${admin.email}`);
-    return { token:'jwt.'+uid('atok'), admin };
-  },
   async getProducts(){ return loadDB(DB_KEYS.products, []); },
   async getProduct(id){ return loadDB(DB_KEYS.products, []).find(p=>p.id===id); },
   async submitPayment({orderId, method, slipDataUrl}){
@@ -998,7 +827,49 @@ let SESSION = loadDB(DB_KEYS.session, null);
 let CURRENT_CHECKOUT_ORDER = null;
 let CURRENT_PAY_METHOD = 'qr';
 
+// Firebase Auth restores a saved session asynchronously — on a fresh page
+// load, fbAuth.currentUser can still be null for a brief moment even for a
+// returning, already-logged-in visitor. Waiting for the first
+// onAuthStateChanged callback (with a safety timeout for a logged-out first
+// visit) means the very first Firestore pull below already carries the
+// right auth state instead of racing ahead of it.
+function waitForAuthReady(timeoutMs){
+  return new Promise(resolve=>{
+    let done = false;
+    const unsub = fbAuth.onAuthStateChanged(user=>{ if(done) return; done = true; unsub(); resolve(user); });
+    setTimeout(()=>{ if(done) return; done = true; try{ unsub(); }catch(e){} resolve(fbAuth.currentUser); }, timeoutMs || 2000);
+  });
+}
+
+// CRITICAL: once a customer is logged in, nothing else in the app ever
+// re-reads their own user document from Firestore again — balance and
+// notification changes an admin makes (approving a top-up or an order)
+// only land in the admin's own local cache unless this runs. Called once
+// right after login/registration, then on a timer, and whenever the wallet
+// tab is opened, so a credited top-up shows up within seconds instead of
+// requiring the customer to clear their browser data.
+async function refreshOwnUserFromFirestore(){
+  if(!SESSION || SESSION.role!=='user') return;
+  try{
+    const snap = await fbDb.collection('users').doc(SESSION.id).get();
+    if(!snap.exists) return;
+    const remote = snap.data();
+    const users = loadDB(DB_KEYS.users, []);
+    const idx = users.findIndex(u=>u.id===SESSION.id);
+    if(idx>-1){ users[idx] = {...users[idx], ...remote}; } else { users.push(remote); }
+    localStorage.setItem(DB_KEYS.users, JSON.stringify(users));
+    renderAuthArea();
+    if(document.getElementById('view-dashboard') && document.getElementById('view-dashboard').classList.contains('active')){
+      const walletTabOpen = document.getElementById('dt-wallet') && !document.getElementById('dt-wallet').classList.contains('hidden');
+      fillDashboard();
+      if(walletTabOpen) renderWallet();
+    }
+  }catch(e){ console.warn('Failed to refresh own user doc from Firestore', e); }
+}
+
 (async function init(){
+  await waitForAuthReady();
+  await pullAdminDataFromFirestore();
   await seedIfNeeded();
   applyTheme(loadDB(DB_KEYS.theme,'dark'));
   applyBackground();
@@ -1015,6 +886,8 @@ let CURRENT_PAY_METHOD = 'qr';
   document.getElementById('loadOverlay').style.transition='opacity .4s';
   setTimeout(()=>{ document.getElementById('loadOverlay').style.opacity='0'; setTimeout(()=>document.getElementById('loadOverlay').remove(),400); }, 350);
   setInterval(renderLiveActivity, 8000);
+  if(SESSION && SESSION.role==='user') refreshOwnUserFromFirestore();
+  setInterval(refreshOwnUserFromFirestore, 15000);
 })();
 
 function route(){
@@ -1024,18 +897,16 @@ function route(){
 }
 
 function go(view, skipHash){
-  const validViews = ['home','products','auth','dashboard','checkout','admin'];
+  const validViews = ['home','products','auth','dashboard','checkout'];
   if(!validViews.includes(view)) view='home';
   if(view==='dashboard' && !(SESSION && SESSION.role==='user')){ view='auth'; switchAuth('login'); }
-  if(view==='admin' && !(SESSION && SESSION.role==='admin')){ view='auth'; switchAuth('login'); }
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.getElementById('view-'+view).classList.add('active');
   if(!skipHash) location.hash = '/'+view;
   window.scrollTo({top:0, behavior:'smooth'});
   document.getElementById('mobileMenu').classList.add('hidden');
   if(view==='products') renderProductList();
-  if(view==='dashboard') { fillDashboard(); dashTab('profile'); }
-  if(view==='admin') { fillAdmin(); adminTab('overview'); }
+  if(view==='dashboard') { fillDashboard(); dashShowMenu(); }
   if(view==='home') renderLiveActivity();
   updateBottomNav(view);
 }
@@ -1043,18 +914,14 @@ function go(view, skipHash){
 function toggleMobileMenu(){
   const menu = document.getElementById('mobileMenu');
   const userItems = document.getElementById('mobileMenuUserItems');
-  const adminItems = document.getElementById('mobileMenuAdminItems');
   const isOpen = !menu.classList.contains('hidden');
   if(isOpen){ menu.classList.add('hidden'); return; }
   userItems.classList.add('hidden'); userItems.classList.remove('flex');
-  adminItems.classList.add('hidden'); adminItems.classList.remove('flex');
   if(SESSION && SESSION.role==='user'){ userItems.classList.remove('hidden'); userItems.classList.add('flex'); }
-  else if(SESSION && SESSION.role==='admin'){ adminItems.classList.remove('hidden'); adminItems.classList.add('flex'); }
   menu.classList.remove('hidden');
 }
 function mmNav(view){ document.getElementById('mobileMenu').classList.add('hidden'); go(view); }
 function mmDashTab(tab){ document.getElementById('mobileMenu').classList.add('hidden'); go('dashboard'); dashTab(tab); }
-function mmAdminGo(){ document.getElementById('mobileMenu').classList.add('hidden'); go('admin'); }
 function mmLogout(){ document.getElementById('mobileMenu').classList.add('hidden'); logout(); }
 document.addEventListener('click', (e)=>{
   const menu = document.getElementById('mobileMenu');
@@ -1075,13 +942,7 @@ function bnGo(target){
 function updateBottomNav(view){
   let activeKey = null;
   if(view==='products') activeKey = 'products';
-  else if(view==='dashboard'){
-    const activeTabBtn = document.querySelector('.dashnav.bg-ink-700');
-    const tab = activeTabBtn ? activeTabBtn.getAttribute('data-dashtab') : null;
-    if(tab==='orders') activeKey = 'orders';
-    else if(tab==='wallet') activeKey = 'wallet';
-    else if(tab==='mycards') activeKey = 'mycards';
-  }
+  else if(view==='dashboard') activeKey = 'settings';
   document.querySelectorAll('#bottomNav .bn-item').forEach(b=>{ b.classList.toggle('active', b.getAttribute('data-bn') === activeKey); });
 }
 
@@ -1131,23 +992,31 @@ function renderSiteBranding(){
   const settings = loadDB(DB_KEYS.settings, {siteLogo:null, siteName:''});
   const customName = (settings.siteName||'').trim();
   document.querySelectorAll('.site-name-text').forEach(el=>{
-    if(customName){ el.textContent = customName; } else { el.innerHTML = 'VAULT<span class="text-plasma-400">PLAY</span>'; }
+    if(customName){ el.textContent = customName; } else { el.innerHTML = 'TOH<span class="text-plasma-400"> Shop</span>'; }
   });
   document.querySelectorAll('.site-logo-slot').forEach(el=>{
-    if(settings.siteLogo){ el.innerHTML = `<img src="${settings.siteLogo}" class="w-full h-full object-cover">`; } else { el.innerHTML = '<i class="fa-solid fa-vault text-ink-950 text-sm"></i>'; }
+    if(settings.siteLogo){ el.innerHTML = `<img src="${settings.siteLogo}" class="w-full h-full object-cover">`; } else { el.innerHTML = '<i class="fa-solid fa-gamepad text-ink-950 text-sm"></i>'; }
   });
 }
 
 function renderMarquee(){
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null, promoText:'', promoText2:''});
+  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null, promoText:'', promoText2:'', marqueeSpeed:22, marqueeSpeed2:22});
   const bar = document.getElementById('marqueeBar');
   const track = document.getElementById('marqueeTrack');
   const text = (settings.promoText||'').trim();
+  const speed = Math.min(120, Math.max(3, parseInt(settings.marqueeSpeed) || 22));
+  // animation-duration set inline (not just via the CSS class) so each bar can
+  // run at its own admin-set speed, always as an "infinite" loop — this keeps
+  // it scrolling continuously for as long as the page stays open (24/7 on a
+  // display screen), never stopping after one pass.
+  track.style.animationDuration = speed + 's';
   if(!text){ bar.classList.add('hidden'); track.innerHTML=''; }
   else { bar.classList.remove('hidden'); track.innerHTML = Array(4).fill(`<span>${escapeHtml(text)}</span>`).join(''); }
   const bar2 = document.getElementById('marqueeBar2');
   const track2 = document.getElementById('marqueeTrack2');
   const text2 = (settings.promoText2||'').trim();
+  const speed2 = Math.min(120, Math.max(3, parseInt(settings.marqueeSpeed2) || 22));
+  track2.style.animationDuration = speed2 + 's';
   if(!text2){ bar2.classList.add('hidden'); track2.innerHTML=''; }
   else { bar2.classList.remove('hidden'); track2.innerHTML = Array(4).fill(`<span>${escapeHtml(text2)}</span>`).join(''); }
 }
@@ -1219,8 +1088,8 @@ function renderHomeGrids(){
 }
 function emptyState(msg){ return `<div class="col-span-full text-center py-10 text-mist-400"><i class="fa-solid fa-box-open text-3xl mb-2"></i><p>${msg}</p></div>`; }
 
-function updateHeroStats(){
-  const users = loadDB(DB_KEYS.users, []);
+async function updateHeroStats(){
+  const users = await syncAllUsersFromFirestore();
   const orders = loadDB(DB_KEYS.orders, []);
   const products = loadDB(DB_KEYS.products, []);
   const completed = orders.filter(o=>o.status==='completed').length;
@@ -1251,14 +1120,14 @@ function activityIcon(action){
     REGISTER:['fa-user-plus','text-ion-400'], LOGIN:['fa-right-to-bracket','text-mist-300'],
     ORDER_WALLET_PAY:['fa-cart-shopping','text-green-400'], ORDER_CREATE:['fa-cart-plus','text-plasma-400'],
     PAYMENT_SUBMIT:['fa-receipt','text-yellow-400'], PAYMENT_APPROVE:['fa-circle-check','text-green-400'],
-    TOPUP_SUBMIT:['fa-wallet','text-ion-400'], TOPUP_APPROVE:['fa-circle-check','text-green-400'],
+    TOPUP_SUBMIT:['fa-wallet','text-ion-400'], TOPUP_APPROVE:['fa-circle-check','text-green-400'], TOPUP_AI_APPROVE:['fa-robot','text-green-400'], TOPUP_AI_REJECT:['fa-robot','text-red-400'], TOPUP_AI_REVIEW:['fa-robot','text-yellow-400'], TOPUP_ADMIN_OVERRIDE:['fa-user-shield','text-yellow-400'],
   };
   return map[action] || ['fa-bolt','text-mist-400'];
 }
 function renderLiveActivity(){
   const el = document.getElementById('liveActivityList');
   if(!el) return;
-  const logs = loadDB(DB_KEYS.logs, []).filter(l=>l.action!=='SEED').slice(0,10);
+  const logs = loadDB(DB_KEYS.logs, []).filter(l=>l.action!=='SEED' && l.action!=='ADMIN_LOGIN' && l.action!=='ADMIN_TOPUP' && l.action!=='LOGIN').slice(0,10);
   if(logs.length === 0){ el.innerHTML = `<p class="text-center text-mist-400 text-sm py-6">ລໍຖ້າ Activity…</p>`; return; }
   el.innerHTML = logs.map(l=>{
     const [ic,color] = activityIcon(l.action);
@@ -1375,12 +1244,6 @@ function renderAuthArea(){
     document.getElementById('navBalanceValue').textContent = fmtK(user? user.balance||0 : 0);
     refreshNotifBell();
     el.innerHTML = '';
-  } else if(SESSION && SESSION.role==='admin'){
-    applyDesktopViewport(true);
-    document.getElementById('notifBell').classList.add('hidden');
-    document.getElementById('navBalanceChip').classList.add('hidden');
-    document.getElementById('navBalanceChip').classList.remove('flex');
-    el.innerHTML = `<button onclick="go('admin')" class="px-4 py-2 rounded-full bg-plasma-500 hover:bg-plasma-600 text-sm font-display font-600"><i class="fa-solid fa-user-shield mr-1"></i> Admin</button>`;
   } else {
     applyDesktopViewport(false);
     document.getElementById('notifBell').classList.add('hidden');
@@ -1400,20 +1263,11 @@ async function doLogin(){
   const idv = document.getElementById('loginId').value.trim();
   const pass = document.getElementById('loginPass').value;
   if(!idv || !pass) return toastErr('ກະລຸນາປ້ອນຂໍ້ມູນໃຫ້ຄົບ');
-  const admins = loadDB(DB_KEYS.admins, []);
-  const isAdminId = admins.some(a=> a.email.toLowerCase()===idv.toLowerCase() || a.phone===idv);
-  if(isAdminId){
-    try{
-      const {admin} = await api.adminLogin({id:idv, password:pass});
-      SESSION = {role:'admin', id:admin.id}; saveDB(DB_KEYS.session, SESSION);
-      await ensureAdminFirebaseAuth(admin.email, pass);
-      renderAuthArea(); toastOk('ເຂົ້າສູ່ລະບົບສຳເລັດ'); go('products');
-    }catch(e){ toastErr(e.message); }
-    return;
-  }
   try{
     const {user} = await api.login({id:idv, password:pass});
     SESSION = {role:'user', id:user.id}; saveDB(DB_KEYS.session, SESSION);
+    await pullAdminDataFromFirestore();
+    renderSiteBranding(); applyBackground(); renderHeroBanner(); renderMarquee(); renderHomeGrids(); updateHeroStats();
     renderAuthArea(); toastOk('ເຂົ້າສູ່ລະບົບສຳເລັດ'); go('products');
   }catch(e){ toastErr(e.message); }
 }
@@ -1442,6 +1296,8 @@ async function doRegister(){
   try{
     const {user} = await api.register({username,password});
     SESSION = {role:'user', id:user.id}; saveDB(DB_KEYS.session, SESSION);
+    await pullAdminDataFromFirestore();
+    renderSiteBranding(); applyBackground(); renderHeroBanner(); renderMarquee(); renderHomeGrids(); updateHeroStats();
     renderAuthArea(); toastOk('ສະໝັກສະມາຊິກສຳເລັດ!'); go('products');
   }catch(e){ toastErr(e.message); }
 }
@@ -1459,7 +1315,6 @@ async function doReset(){
   switchAuth('login');
 }
 function logout(){ SESSION=null; saveDB(DB_KEYS.session,null); renderAuthArea(); toastInfo('ອອກຈາກລະບົບແລ້ວ'); go('home'); }
-function adminLogout(){ SESSION=null; saveDB(DB_KEYS.session,null); renderAuthArea(); go('home'); }
 
 function currentUser(){ if(!SESSION||SESSION.role!=='user') return null; return loadDB(DB_KEYS.users,[]).find(u=>u.id===SESSION.id); }
 
@@ -1479,12 +1334,29 @@ function dashTab(tab){
   document.getElementById('dt-'+tab).classList.remove('hidden');
   document.querySelectorAll('.dashnav').forEach(b=>b.classList.remove('bg-ink-700','text-mist-100'));
   document.querySelector(`[data-dashtab="${tab}"]`).classList.add('bg-ink-700','text-mist-100');
-  if(tab==='wallet') renderWallet();
+  if(tab==='wallet'){ renderWallet(); refreshOwnUserFromFirestore(); }
   if(tab==='mycards') renderMyCards();
   updateBottomNav('dashboard');
-  const navList = document.getElementById('dashNavList');
-  if(navList) navList.classList.remove('hidden');
+  // Jump straight into the picked section (hide the menu list) instead of
+  // leaving the customer to scroll past it every time. Desktop keeps the
+  // menu visible alongside the content via the lg:!block / lg:!hidden
+  // CSS overrides below, regardless of these classes.
+  const aside = document.getElementById('dashAside');
+  const backBtn = document.getElementById('dashBackBtn');
+  if(aside) aside.classList.add('hidden');
+  if(backBtn) backBtn.classList.remove('hidden');
+  window.scrollTo({top:0});
 }
+function dashBackToMenu(){
+  const aside = document.getElementById('dashAside');
+  const backBtn = document.getElementById('dashBackBtn');
+  document.querySelectorAll('.dashcontent').forEach(d=>d.classList.add('hidden'));
+  document.querySelectorAll('.dashnav').forEach(b=>b.classList.remove('bg-ink-700','text-mist-100'));
+  if(aside) aside.classList.remove('hidden');
+  if(backBtn) backBtn.classList.add('hidden');
+  window.scrollTo({top:0});
+}
+const dashShowMenu = dashBackToMenu;
 async function saveProfile(){
   const user = currentUser(); if(!user) return;
   user.username = document.getElementById('pfUsername').value.trim() || user.username;
@@ -1522,7 +1394,7 @@ function renderOrderHistory(){
     const st = statusMap[o.status]||['-','text-mist-400'];
     const codeBlock = (o.status==='completed' && o.deliveryCode) ? `
       <div class="mt-3 pt-3 border-t border-ink-700 flex items-center justify-between gap-2">
-        <div class="min-w-0"><p class="text-xs text-mist-400 uppercase font-display">ລະຫັດໄອດີທີ່ໄດ້ຮັບ</p><p class="font-mono text-sm text-ion-400 truncate" id="code-${o.id}">${escapeHtml(o.deliveryCode)}</p></div>
+        <div class="min-w-0"><p class="text-xs text-mist-400 uppercase font-display">ສິນຄ້າທີ່ໄດ້ຮັບ</p><p class="font-mono text-sm text-ion-400 truncate" id="code-${o.id}">${escapeHtml(o.deliveryCode)}</p></div>
         <button onclick="copyOrderCode('${o.id}')" class="shrink-0 text-xs px-3 py-1.5 rounded-full bg-ink-700 hover:bg-ink-600 text-mist-200 font-display"><i class="fa-regular fa-copy mr-1"></i>ຄັດລອກ</button>
       </div>` : '';
     return `<div class="bg-ink-800/60 border border-ink-700 rounded-xl p-4">
@@ -1563,10 +1435,10 @@ function renderMyCards(){
           <span class="font-mono text-sm text-ion-400 truncate" id="mycode-${o.id}">${escapeHtml(o.deliveryCode)}</span>
           <button onclick="copyMyCode('${o.id}')" class="shrink-0 text-xs px-3 py-1.5 rounded-full bg-ink-700 hover:bg-ink-600 text-mist-200 font-display"><i class="fa-regular fa-copy mr-1"></i>ຄັດລອກ</button>
         </div>
-        ${o.deliveryVideoUrl ? `<a href="${escapeHtml(o.deliveryVideoUrl)}" target="_blank" rel="noopener" class="mt-3 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-white text-sm font-display font-600"><i class="fa-brands fa-youtube text-lg"></i> ເບິ່ງວິດີໂອໃນ YouTube</a>` : ''}
+        ${o.deliveryVideoUrl ? `<a href="${escapeHtml(o.deliveryVideoUrl)}" target="_blank" rel="noopener" class="mt-3 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-white text-sm font-display font-600"><i class="fa-brands fa-youtube text-lg"></i>ສອນລົງໄຟລ໌ YouTube</a>` : ''}
       </div>
     </div>`;
-  }).join('') || `<div class="col-span-full text-center py-10 text-mist-400"><i class="fa-solid fa-id-card-clip text-3xl mb-2"></i><p>ຍັງບໍ່ມີໄອດີເກມ, ຊື້ສິນຄ້າແລ້ວລໍຖ້າຢືນຢັນເພື່ອຮັບລະຫັດ</p></div>`;
+  }).join('') || `<div class="col-span-full text-center py-10 text-mist-400"><i class="fa-solid fa-id-card-clip text-3xl mb-2"></i><p>ຍັງບໍ່ມີສິນຄ້າ, ຊື້ສິນຄ້າແລ້ວລໍຖ້າຢືນຢັນເພື່ອຮັບສິນຄ້າ</p></div>`;
 }
 function copyMyCode(orderId){
   const el = document.getElementById('mycode-'+orderId);
@@ -1629,60 +1501,252 @@ function startCountdown(seconds, elIds, onExpire){
   _countdownInterval = setInterval(()=>{ remaining--; if(remaining < 0){ clearInterval(_countdownInterval); if(onExpire) onExpire(); return; } render(); }, 1000);
 }
 
+const TOPUP_DURATION_SEC = 15*60;
 let CURRENT_TOPUP_AMOUNT = 0;
+
+function getActiveTopupSession(userId){
+  const sessions = loadDB(DB_KEYS.activeTopups, []);
+  const s = sessions.find(x=>x.userId===userId);
+  if(!s) return null;
+  const elapsedSec = Math.floor((Date.now() - s.startedAt)/1000);
+  if(elapsedSec >= TOPUP_DURATION_SEC){
+    clearActiveTopupSession(userId);
+    return null;
+  }
+  return s;
+}
+function saveActiveTopupSession(userId, amount, payload){
+  const sessions = loadDB(DB_KEYS.activeTopups, []).filter(x=>x.userId!==userId);
+  sessions.push({ userId, amount, payload, startedAt: Date.now() });
+  saveDB(DB_KEYS.activeTopups, sessions);
+}
+function clearActiveTopupSession(userId){
+  const sessions = loadDB(DB_KEYS.activeTopups, []).filter(x=>x.userId!==userId);
+  saveDB(DB_KEYS.activeTopups, sessions);
+}
+
+function setTopupPickerLocked(locked){
+  document.getElementById('quickAmountGrid').classList.toggle('opacity-40', locked);
+  document.getElementById('quickAmountGrid').classList.toggle('pointer-events-none', locked);
+  document.getElementById('customTopupAmount').disabled = locked;
+  document.getElementById('topupLockedNotice').classList.toggle('hidden', !locked);
+}
+
 function renderWallet(){
   const user = currentUser(); if(!user) return;
   document.getElementById('walletBalance').textContent = `₭ ${fmtK(user.balance||0)}`;
-  document.getElementById('topupQrBlock').classList.add('hidden');
-  document.getElementById('topupTimerBadge').classList.add('hidden');
+  document.getElementById('topupConfirmArea').classList.add('hidden');
   document.querySelectorAll('.topup-amt-btn').forEach(b=>b.classList.remove('border-plasma-500','bg-plasma-500/10'));
   document.getElementById('customTopupAmount').value='';
+  setTopupPickerLocked(false);
+
+  const activeSession = getActiveTopupSession(user.id);
+  if(activeSession){
+    // ລູກຄ້າອອກ-ເຂົ້າໃໝ່: ສະແດງ QR ໂຕເກົ່າຄືນ ຈົນກວ່າຈະໝົດເວລາ
+    CURRENT_TOPUP_AMOUNT = activeSession.amount;
+    document.getElementById('topupQrBlock').classList.remove('hidden');
+    document.getElementById('topupTimerBadge').classList.remove('hidden');
+    document.getElementById('topupAmountLabel').textContent = `₭ ${fmtK(activeSession.amount)}`;
+    renderPaymentQr('topupQrHolder', activeSession.payload);
+    setTopupPickerLocked(true);
+    const remainingSec = Math.max(0, TOPUP_DURATION_SEC - Math.floor((Date.now()-activeSession.startedAt)/1000));
+    startCountdown(remainingSec, ['topupTimer','topupTimer2'], ()=>{
+      toastErr('ໝົດເວລາການເຕີມເງິນ, ກະລຸນາເລືອກຈຳນວນເງິນໃໝ່');
+      clearActiveTopupSession(user.id);
+      document.getElementById('topupQrBlock').classList.add('hidden');
+      document.getElementById('topupTimerBadge').classList.add('hidden');
+      setTopupPickerLocked(false);
+    });
+  } else {
+    CURRENT_TOPUP_AMOUNT = 0;
+    document.getElementById('topupQrBlock').classList.add('hidden');
+    document.getElementById('topupTimerBadge').classList.add('hidden');
+  }
   renderTopupHistory();
 }
+
 function pickTopupAmount(amount, isCustom){
+  const user = currentUser(); if(!user) return;
+  if(getActiveTopupSession(user.id)){ return; } // ລັອກໄວ້ຈົນກວ່າ QR ເກົ່າຈະໝົດເວລາ
   amount = parseInt(amount) || 0;
   CURRENT_TOPUP_AMOUNT = amount;
   document.querySelectorAll('.topup-amt-btn').forEach(b=>b.classList.remove('border-plasma-500','bg-plasma-500/10'));
   if(!isCustom && window.event && window.event.currentTarget){ window.event.currentTarget.classList.add('border-plasma-500','bg-plasma-500/10'); document.getElementById('customTopupAmount').value=''; }
-  if(amount < 1000){ document.getElementById('topupQrBlock').classList.add('hidden'); document.getElementById('topupTimerBadge').classList.add('hidden'); return; }
+  document.getElementById('topupQrBlock').classList.add('hidden');
+  document.getElementById('topupTimerBadge').classList.add('hidden');
+  if(amount < 1000){ document.getElementById('topupConfirmArea').classList.add('hidden'); return; }
+  document.getElementById('topupConfirmAmount').textContent = `₭ ${fmtK(amount)}`;
+  document.getElementById('topupConfirmArea').classList.remove('hidden');
+}
+
+function confirmTopupAmount(){
+  const user = currentUser(); if(!user) return;
+  if(!CURRENT_TOPUP_AMOUNT || CURRENT_TOPUP_AMOUNT < 1000) return toastErr('ກະລຸນາເລືອກ ຫຼື ປ້ອນຈຳນວນເງິນ');
+  const amount = CURRENT_TOPUP_AMOUNT;
+  const payload = `VAULTPLAY|TOPUP|AMOUNT:${amount}|USER:${SESSION.id}`;
+  document.getElementById('topupConfirmArea').classList.add('hidden');
   document.getElementById('topupQrBlock').classList.remove('hidden');
   document.getElementById('topupTimerBadge').classList.remove('hidden');
   document.getElementById('topupAmountLabel').textContent = `₭ ${fmtK(amount)}`;
-  renderPaymentQr('topupQrHolder', `VAULTPLAY|TOPUP|AMOUNT:${amount}|USER:${SESSION.id}`);
-  startCountdown(15*60, ['topupTimer','topupTimer2'], ()=>{
+  renderPaymentQr('topupQrHolder', payload);
+  saveActiveTopupSession(user.id, amount, payload);
+  setTopupPickerLocked(true);
+  startCountdown(TOPUP_DURATION_SEC, ['topupTimer','topupTimer2'], ()=>{
     toastErr('ໝົດເວລາການເຕີມເງິນ, ກະລຸນາເລືອກຈຳນວນເງິນໃໝ່');
+    clearActiveTopupSession(user.id);
     document.getElementById('topupQrBlock').classList.add('hidden');
     document.getElementById('topupTimerBadge').classList.add('hidden');
+    setTopupPickerLocked(false);
   });
 }
+
 function renderPaymentQr(holderId, payload){
   const settings = loadDB(DB_KEYS.settings, {qrImage:null});
   const holder = document.getElementById(holderId);
   if(settings.qrImage){ holder.innerHTML = `<img src="${settings.qrImage}" class="w-52 h-52 object-contain">`; }
   else if(window.QRCode){ holder.innerHTML = `<canvas></canvas>`; QRCode.toCanvas(holder.querySelector('canvas'), payload, { width:208, margin:1, color:{dark:'#0B0F19', light:'#FFFFFF'} }); }
 }
-document.getElementById('topupSlipInput')?.addEventListener('change', function(e){
+document.getElementById('topupSlipInput')?.addEventListener('change', async function(e){
   const file = e.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev){
-    document.getElementById('topupSlipPreview').src = ev.target.result;
+  try{
+    const dataUrl = await compressImageFile(file, 1000, 0.7);
+    document.getElementById('topupSlipPreview').src = dataUrl;
     document.getElementById('topupSlipPreview').classList.remove('hidden');
-    window._topupSlipDataUrl = ev.target.result;
-  };
-  reader.readAsDataURL(file);
+    window._topupSlipDataUrl = dataUrl;
+  }catch(err){ toastErr('ບໍ່ສາມາດອ່ານຮູບນີ້ໄດ້'); }
 });
-function submitTopup(){
+function sendFacebookNotify(message){
+  try{
+    const settings = loadDB(DB_KEYS.settings, {fbApiKey:''});
+    if(!settings.fbApiKey) return;
+    const url = `https://api.callmebot.com/facebook/send.php?apikey=${encodeURIComponent(settings.fbApiKey)}&text=${encodeURIComponent(message)}`;
+    const pixel = new Image();
+    pixel.src = url;
+  }catch(e){ /* silent — notification is best-effort, never block the app */ }
+}
+function _withTimeout(promise, ms){
+  return Promise.race([promise, new Promise(res=>setTimeout(()=>res(null), ms))]);
+}
+async function readSlipWithAI(dataUrl){
+  try{
+    const settings = loadDB(DB_KEYS.settings, {geminiApiKey:''});
+    const key = (settings.geminiApiKey||'').trim();
+    if(!key) return null;
+    const match = /^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/.exec(dataUrl||'');
+    if(!match) return null;
+    const mimeType = match[1], base64Data = match[2];
+    const prompt = 'ນີ້ແມ່ນຮູບສະລິບ/ໃບຢືນຢັນການໂອນເງິນຈາກທະນາຄານ ຫຼື e-wallet ໃນລາວ (ອາດເປັນ BCEL, LDB, JDB, ST Bank, ACLEDA, ທະນາຄານອິນໂດຈີນ, APB, U-Money, Trust Bank, TrueMoney ຫຼືອື່ນໆ — ຮອງຮັບທຸກຮູບແບບ). ອ່ານຂໍ້ມູນຢ່າງລະອຽດທີ່ສຸດ ແລະ ຕອບເປັນ JSON ຢ່າງດຽວ ຮູບແບບນີ້ເທົ່ານັ້ນ, ບໍ່ຕ້ອງອະທິບາຍເພີ່ມ: {"amount": ຈຳນວນເງິນທີ່ໂອນ (number, ບໍ່ມີເຄື່ອງໝາຍ +/-, ຈຸດ, ຄອມມາ; null ຖ້າອ່ານບໍ່ໄດ້), "sender": "ຊື່ຜູ້ໂອນ/ຜູ້ສົ່ງເງິນ ຫຼື null", "receiver": "ຊື່ຜູ້ຮັບເງິນ/ບັນຊີປາຍທາງ ຫຼື null", "datetime": "ວັນທີ ແລະ ເວລາທຸລະກຳ ໃນຮູບແບບ YYYY-MM-DDTHH:mm:ss ຖ້າອ່ານໄດ້, null ຖ້າອ່ານບໍ່ໄດ້", "ref": "ເລກອ້າງອີງ/ເລກທຸລະກຳ ຫຼື null", "tamperedStatus": "clean" (ໝັ້ນໃຈວ່າຮູບຖືກຕ້ອງ) ຫຼື "tampered" (ໝັ້ນໃຈວ່າຖືກຕັດຕໍ່/ແກ້ໄຂ) ຫຼື "unsure" (ບໍ່ໝັ້ນໃຈ, ເຫັນບາງຢ່າງແປກແຕ່ບອກບໍ່ໄດ້ແນ່ນອນ — ໃຫ້ໃຊ້ "unsure" ທຸກຄັ້ງທີ່ບໍ່ໝັ້ນໃຈ 100% ແທນທີ່ຈະທາຍ), "tamperedReason": "ອະທິບາຍສັ້ນໆວ່າເປັນຫຍັງຄິດວ່າ tampered ຫຼື unsure, null ຖ້າ clean"}';
+    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${encodeURIComponent(key)}`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        contents:[{ parts:[ {text:prompt}, {inline_data:{mime_type:mimeType, data:base64Data}} ] }],
+        generationConfig:{ response_mime_type:'application/json' }
+      })
+    });
+    if(!resp.ok) return null;
+    const data = await resp.json();
+    const text = data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0] && data.candidates[0].content.parts[0].text;
+    if(!text) return null;
+    const parsed = JSON.parse(text);
+    return {
+      amount: (parsed.amount===undefined?null:parsed.amount),
+      sender: parsed.sender||null,
+      receiver: parsed.receiver||null,
+      datetime: parsed.datetime||null,
+      ref: parsed.ref||null,
+      tamperedStatus: (parsed.tamperedStatus==='tampered'||parsed.tamperedStatus==='unsure') ? parsed.tamperedStatus : 'clean',
+      tamperedReason: parsed.tamperedReason||null
+    };
+  }catch(e){ return null; }
+}
+// Runs the fraud-check rules against what the AI read. Returns null when the
+// AI didn't return usable data (so the caller falls back to manual review
+// instead of guessing); otherwise {approved, reasons[]} — reasons explains
+// every rule that failed, always shown to both the customer and the admin.
+function evaluateTopupWithAI(topupAmount, aiRead, settings){
+  if(!aiRead) return null;
+  const reasons = [];
+  if(aiRead.amount == null || Number(aiRead.amount) !== Number(topupAmount)){
+    reasons.push(`ຈຳນວນເງິນໃນສະລິບ (${aiRead.amount!=null?'₭'+fmtK(aiRead.amount):'ອ່ານບໍ່ໄດ້'}) ບໍ່ກົງກັບຈຳນວນທີ່ເລືອກເຕີມ (₭${fmtK(topupAmount)})`);
+  }
+  const validNamesRaw = (settings.receiverNames||'').split(',').map(s=>s.trim().toLowerCase()).filter(Boolean);
+  if(validNamesRaw.length){
+    const recv = (aiRead.receiver||'').trim().toLowerCase();
+    const receiverOk = recv && validNamesRaw.some(n=> n && (recv.includes(n) || n.includes(recv)));
+    if(!receiverOk) reasons.push(`ຊື່ຜູ້ຮັບເງິນໃນສະລິບ ("${aiRead.receiver||'ອ່ານບໍ່ໄດ້'}") ບໍ່ກົງກັບບັນຊີຮ້ານທີ່ຕັ້ງໄວ້`);
+  }
+  let needsReview = false, reviewReason = null;
+  if(aiRead.tamperedStatus === 'tampered'){
+    reasons.push(`AI ພົບຮ່ອງຮອຍການແກ້ໄຂຮູບ: ${aiRead.tamperedReason||'ບໍ່ລະບຸເຫດຜົນ'}`);
+  } else if(aiRead.tamperedStatus === 'unsure'){
+    // AI itself isn't confident whether this slip was edited — don't let it
+    // guess either way. Route to the admin instead of auto-approving or
+    // auto-rejecting on a coin-flip.
+    needsReview = true;
+    reviewReason = aiRead.tamperedReason || 'AI ບໍ່ໝັ້ນໃຈວ່າຮູບສະລິບຖືກຕັດຕໍ່/ແກ້ໄຂຫຼືບໍ່';
+  }
+  if(aiRead.datetime){
+    const txTime = new Date(aiRead.datetime);
+    if(!isNaN(txTime.getTime())){
+      const diffMin = (Date.now() - txTime.getTime())/60000;
+      if(diffMin > 20 || diffMin < -5){
+        reasons.push(`ເວລາໂອນໃນສະລິບ (${aiRead.datetime}) ຫ່າງຈາກເວລາປັດຈຸບັນເກີນ 20 ນາທີ — ອາດເປັນສະລິບເກົ່າ/ໃຊ້ຊ້ຳ`);
+      }
+    }
+  }
+  if(needsReview) return { approved:false, needsReview:true, reviewReason, reasons };
+  return { approved: reasons.length===0, needsReview:false, reasons };
+}
+async function submitTopup(){
   const user = currentUser(); if(!user) return;
   if(!CURRENT_TOPUP_AMOUNT || CURRENT_TOPUP_AMOUNT < 1000) return toastErr('ກະລຸນາເລືອກ ຫຼື ປ້ອນຈຳນວນເງິນ');
   if(!window._topupSlipDataUrl) return toastErr('ກະລຸນາອັບໂຫຼດສະລິບການໂອນເງິນກ່ອນ');
+  const slipData = window._topupSlipDataUrl;
+  toastInfo('ກຳລັງກວດສະລິບ...');
+  const settings = loadDB(DB_KEYS.settings, {});
+  const aiRead = await _withTimeout(readSlipWithAI(slipData), 10000);
+  const aiDecision = evaluateTopupWithAI(CURRENT_TOPUP_AMOUNT, aiRead, settings);
+  let finalStatus = 'pending_verification';
+  if(aiDecision && !aiDecision.needsReview) finalStatus = aiDecision.approved ? 'completed' : 'rejected';
   const topups = loadDB(DB_KEYS.topups, []);
-  const topup = { id: uid('top'), userId:user.id, amount:CURRENT_TOPUP_AMOUNT, slip:window._topupSlipDataUrl, status:'pending_verification', createdAt: nowISO(), verifiedAt:null };
+  const topup = { id: uid('top'), userId:user.id, amount:CURRENT_TOPUP_AMOUNT, slip:slipData, status:finalStatus, createdAt: nowISO(), verifiedAt: finalStatus!=='pending_verification'?nowISO():null, aiRead: aiRead||null, aiDecision: aiDecision||null };
   topups.push(topup); saveDB(DB_KEYS.topups, topups);
-  log('TOPUP_SUBMIT', `Topup ${topup.id} ₭${topup.amount} by ${user.username}`);
+  if(finalStatus==='completed'){
+    const users2 = loadDB(DB_KEYS.users, []);
+    const idx2 = users2.findIndex(u=>u.id===user.id);
+    if(idx2>-1){ users2[idx2].balance = (users2[idx2].balance||0) + topup.amount; saveDB(DB_KEYS.users, users2); }
+    notifyUser(user.id, 'ເຕີມເງິນສຳເລັດ (AI ອະນຸມັດອັດຕະໂນມັດ)', `AI ກວດສະລິບແລ້ວ ອະນຸມັດ ₭${fmtK(topup.amount)} ເຂົ້າກະເປົາຂອງທ່ານໂດຍອັດຕະໂນມັດ.`);
+    log('TOPUP_AI_APPROVE', `AI auto-approved topup ${topup.id} ₭${topup.amount} for ${user.username}`);
+  } else if(finalStatus==='rejected'){
+    notifyUser(user.id, 'ການເຕີມເງິນຖືກປະຕິເສດ (AI ກວດພົບບັນຫາ)', `ເຫດຜົນ: ${aiDecision.reasons.join('; ')}. ຖ້າທ່ານແນ່ໃຈວ່າໂອນຖືກຕ້ອງ ກະລຸນາຕິດຕໍ່ແອດມິນ.`);
+    log('TOPUP_AI_REJECT', `AI auto-rejected topup ${topup.id} for ${user.username}: ${aiDecision.reasons.join('; ')}`);
+  } else if(aiDecision && aiDecision.needsReview){
+    log('TOPUP_AI_REVIEW', `AI unsure about topup ${topup.id} for ${user.username}: ${aiDecision.reviewReason}`);
+  } else {
+    log('TOPUP_SUBMIT', `Topup ${topup.id} ₭${topup.amount} by ${user.username} (ລໍຖ້າກວດສອບດ້ວຍຕົນເອງ — AI ບໍ່ພ້ອມ)`);
+  }
+  {
+    const _link = (settings.adminPanelUrl||'').trim().replace(/\/$/,'');
+    const _linkLine = _link ? `\n👉 ໜ້າແອດມິນ: ${_link}/?tab=topups` : '';
+    let _statusLine;
+    if(finalStatus==='completed') _statusLine = '\n✅ AI ອະນຸມັດອັດຕະໂນມັດ';
+    else if(finalStatus==='rejected') _statusLine = `\n❌ AI ປະຕິເສດອັດຕະໂນມັດ: ${aiDecision.reasons.join('; ')}`;
+    else if(aiDecision && aiDecision.needsReview) _statusLine = `\n⚠️ AI ບໍ່ໝັ້ນໃຈ — ກະລຸນາກວດດ້ວຍຕົນເອງ: ${aiDecision.reviewReason}`;
+    else _statusLine = '\n⏳ ລໍຖ້າກວດສອບດ້ວຍຕົນເອງ (AI ບໍ່ພ້ອມ)';
+    sendFacebookNotify(`ລູກຄ້າແຈ້ງເຕີມເງິນຮ້ານ TOH Shop\n👤 ${user.username}\n💰 ₭${fmtK(topup.amount)}${_statusLine}${_linkLine}`);
+  }
   window._topupSlipDataUrl = null;
   document.getElementById('topupSlipPreview').classList.add('hidden');
   clearInterval(_countdownInterval);
-  Swal.fire({ icon:'success', title:'ສົ່ງການເຕີມເງິນສຳເລັດ', text:'ລໍຖ້າແອດມິນກວດສອບແລະຢືນຢັນ', background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC' });
+  clearActiveTopupSession(user.id);
+  if(finalStatus==='completed'){
+    Swal.fire({ icon:'success', title:'ເຕີມເງິນສຳເລັດ!', text:`AI ກວດສະລິບແລ້ວ ອະນຸມັດອັດຕະໂນມັດ ₭${fmtK(topup.amount)} ເຂົ້າກະເປົາຂອງທ່ານແລ້ວ`, background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC' });
+  } else if(finalStatus==='rejected'){
+    Swal.fire({ icon:'error', title:'ການເຕີມເງິນຖືກປະຕິເສດ', html:`ເຫດຜົນ:<br>${aiDecision.reasons.map(escapeHtml).join('<br>')}<br><br>ຖ້າທ່ານແນ່ໃຈວ່າໂອນຖືກຕ້ອງ ກະລຸນາຕິດຕໍ່ແອດມິນ`, background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC' });
+  } else {
+    Swal.fire({ icon:'success', title:'ສົ່ງການເຕີມເງິນສຳເລັດ', text:'ລໍຖ້າແອດມິນກວດສອບແລະຢືນຢັນ', background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC' });
+  }
   renderWallet();
 }
 function renderTopupHistory(){
@@ -1698,649 +1762,6 @@ function renderTopupHistory(){
   }).join('') || `<div class="text-center py-6 text-mist-400 text-sm">ຍັງບໍ່ມີການເຕີມເງິນ</div>`;
 }
 
-function refreshAdminQrPreview(){
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null});
-  const el = document.getElementById('adminQrPreview');
-  el.innerHTML = settings.qrImage ? `<img src="${settings.qrImage}" class="w-full h-full object-contain rounded-lg">` : 'ຍັງບໍ່ມີ QR';
-}
-document.getElementById('adminQrInput')?.addEventListener('change', function(e){
-  const file = e.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev){ document.getElementById('adminQrPreview').innerHTML = `<img src="${ev.target.result}" class="w-full h-full object-contain rounded-lg">`; window._pendingAdminQr = ev.target.result; };
-  reader.readAsDataURL(file);
-});
-function saveAdminQr(){
-  if(!window._pendingAdminQr) return toastErr('ກະລຸນາເລືອກຮູບ QR ກ່ອນ');
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null});
-  settings.qrImage = window._pendingAdminQr;
-  saveDB(DB_KEYS.settings, settings);
-  window._pendingAdminQr = null;
-  toastOk('ບັນທຶກ QR ສຳເລັດ');
-}
-function removeAdminQr(){
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null});
-  settings.qrImage = null; saveDB(DB_KEYS.settings, settings);
-  refreshAdminQrPreview();
-  toastOk('ລຶບ QR ແລ້ວ');
-}
-
-function refreshAdminBgPreview(){
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null});
-  const el = document.getElementById('adminBgPreview');
-  if(settings.bgImage){ el.style.backgroundImage = `url('${settings.bgImage}')`; el.textContent = ''; }
-  else { el.style.backgroundImage = ''; el.textContent = 'ຍັງບໍ່ມີພື້ນຫຼັງ (ໃຊ້ຄ່າເລີ່ມຕົ້ນ)'; }
-}
-document.getElementById('adminBgInput')?.addEventListener('change', function(e){
-  const file = e.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev){
-    const el = document.getElementById('adminBgPreview');
-    el.style.backgroundImage = `url('${ev.target.result}')`;
-    el.textContent = '';
-    window._pendingAdminBg = ev.target.result;
-  };
-  reader.readAsDataURL(file);
-});
-function saveAdminBg(){
-  if(!window._pendingAdminBg) return toastErr('ກະລຸນາເລືອກຮູບພື້ນຫຼັງກ່ອນ');
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null});
-  settings.bgImage = window._pendingAdminBg;
-  saveDB(DB_KEYS.settings, settings);
-  window._pendingAdminBg = null;
-  applyBackground();
-  toastOk('ບັນທຶກພື້ນຫຼັງເວັບສຳເລັດ');
-}
-function removeAdminBg(){
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null});
-  settings.bgImage = null; saveDB(DB_KEYS.settings, settings);
-  refreshAdminBgPreview();
-  applyBackground();
-  toastOk('ລຶບພື້ນຫຼັງເວັບແລ້ວ');
-}
-
-function refreshAdminBrandPreview(){
-  const settings = loadDB(DB_KEYS.settings, {siteLogo:null, siteName:''});
-  const el = document.getElementById('adminLogoPreview');
-  el.innerHTML = settings.siteLogo ? `<img src="${settings.siteLogo}" class="w-full h-full object-cover">` : '<i class="fa-solid fa-vault"></i>';
-  document.getElementById('adminSiteName').value = settings.siteName || '';
-}
-document.getElementById('adminLogoInput')?.addEventListener('change', function(e){
-  const file = e.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev){ document.getElementById('adminLogoPreview').innerHTML = `<img src="${ev.target.result}" class="w-full h-full object-cover">`; window._pendingAdminLogo = ev.target.result; };
-  reader.readAsDataURL(file);
-});
-function saveAdminBrand(){
-  const settings = loadDB(DB_KEYS.settings, {siteLogo:null, siteName:''});
-  if(window._pendingAdminLogo) settings.siteLogo = window._pendingAdminLogo;
-  settings.siteName = document.getElementById('adminSiteName').value.trim();
-  saveDB(DB_KEYS.settings, settings);
-  window._pendingAdminLogo = null;
-  renderSiteBranding();
-  toastOk('ບັນທຶກໂລໂກ ແລະ ຊື່ເວັບສຳເລັດ');
-}
-function resetAdminBrand(){
-  const settings = loadDB(DB_KEYS.settings, {siteLogo:null, siteName:''});
-  settings.siteLogo = null; settings.siteName = '';
-  saveDB(DB_KEYS.settings, settings);
-  window._pendingAdminLogo = null;
-  refreshAdminBrandPreview();
-  renderSiteBranding();
-  toastOk('ນຳໃຊ້ໂລໂກ ແລະ ຊື່ເວັບຄ່າເລີ່ມຕົ້ນແລ້ວ');
-}
-
-function refreshAdminHeroBannerPreview(){
-  const settings = loadDB(DB_KEYS.settings, {heroBannerImage:null});
-  const el = document.getElementById('adminHeroBannerPreview');
-  el.innerHTML = settings.heroBannerImage ? `<img src="${settings.heroBannerImage}" class="w-full h-full object-cover">` : 'ຍັງບໍ່ມີແບນເນີ';
-}
-document.getElementById('adminHeroBannerInput')?.addEventListener('change', function(e){
-  const file = e.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev){
-    const el = document.getElementById('adminHeroBannerPreview');
-    el.innerHTML = `<img src="${ev.target.result}" class="w-full h-full object-cover">`;
-    window._pendingAdminHeroBanner = ev.target.result;
-  };
-  reader.readAsDataURL(file);
-});
-function saveAdminHeroBanner(){
-  if(!window._pendingAdminHeroBanner) return toastErr('ກະລຸນາເລືອກຮູບແບນເນີກ່ອນ');
-  const settings = loadDB(DB_KEYS.settings, {heroBannerImage:null});
-  settings.heroBannerImage = window._pendingAdminHeroBanner;
-  saveDB(DB_KEYS.settings, settings);
-  window._pendingAdminHeroBanner = null;
-  renderHeroBanner();
-  toastOk('ບັນທຶກແບນເນີ Hero ສຳເລັດ');
-}
-function removeAdminHeroBanner(){
-  const settings = loadDB(DB_KEYS.settings, {heroBannerImage:null});
-  settings.heroBannerImage = null; saveDB(DB_KEYS.settings, settings);
-  refreshAdminHeroBannerPreview();
-  renderHeroBanner();
-  toastOk('ລຶບແບນເນີ Hero ແລ້ວ');
-}
-
-function refreshAdminMarqueeInput(){
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null, promoText:'', promoText2:''});
-  const el = document.getElementById('marqueeInput');
-  if(el) el.value = settings.promoText || '';
-  const el2 = document.getElementById('marqueeInput2');
-  if(el2) el2.value = settings.promoText2 || '';
-}
-function saveMarquee(){
-  const text = document.getElementById('marqueeInput').value.trim();
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null, promoText:'', promoText2:''});
-  settings.promoText = text;
-  saveDB(DB_KEYS.settings, settings);
-  renderMarquee();
-  toastOk(text ? 'ບັນທຶກຂໍ້ຄວາມແລ່ນສຳເລັດ' : 'ບັນທຶກແລ້ວ (ຫວ່າງ, ເຊື່ອງແຖບ)');
-}
-function saveMarquee2(){
-  const text = document.getElementById('marqueeInput2').value.trim();
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null, promoText:'', promoText2:''});
-  settings.promoText2 = text;
-  saveDB(DB_KEYS.settings, settings);
-  renderMarquee();
-  toastOk(text ? 'ບັນທຶກຂໍ້ຄວາມແລ່ນສຳເລັດ' : 'ບັນທຶກແລ້ວ (ຫວ່າງ, ເຊື່ອງແຖບ)');
-}
-function removeMarquee2(){
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null, promoText:'', promoText2:''});
-  settings.promoText2 = '';
-  saveDB(DB_KEYS.settings, settings);
-  document.getElementById('marqueeInput2').value = '';
-  renderMarquee();
-  toastOk('ລຶບຂໍ້ຄວາມແລ່ນແຖບທີ 2 ແລ້ວ');
-}
-function removeMarquee(){
-  const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null, promoText:'', promoText2:''});
-  settings.promoText = '';
-  saveDB(DB_KEYS.settings, settings);
-  document.getElementById('marqueeInput').value = '';
-  renderMarquee();
-  toastOk('ລຶບຂໍ້ຄວາມແລ່ນແລ້ວ');
-}
-
-function renderAdminTopups(){
-  const topups = loadDB(DB_KEYS.topups, []).filter(t=>t.status==='pending_verification');
-  const users = loadDB(DB_KEYS.users, []);
-  document.getElementById('admTopupList').innerHTML = topups.map(t=>{
-    const u = users.find(x=>x.id===t.userId)||{username:'-'};
-    return `<div class="bg-ink-800/60 border border-ink-700 rounded-xl p-4">
-      <img src="${t.slip}" class="w-full h-40 object-cover rounded-lg border border-ink-700 mb-3 cursor-zoom-in" onclick="openImgLightbox('${t.slip}')">
-      <p class="text-sm text-mist-200 font-display">${escapeHtml(u.username)}</p>
-      <p class="text-xs text-mist-400">₭${fmtK(t.amount)} · ${fmtDate(t.createdAt)}</p>
-      <div class="flex gap-2 mt-3"><button onclick="openImgLightbox('${t.slip}')" class="flex-1 py-2 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-200 text-xs font-display"><i class="fa-solid fa-expand mr-1"></i>ເບິ່ງເຕັມ</button></div>
-      <div class="flex gap-2 mt-2">
-        <button onclick="verifyTopup('${t.id}', true)" class="flex-1 py-2 rounded-lg bg-green-500/20 text-green-400 text-xs font-display hover:bg-green-500/30">ອະນຸມັດ</button>
-        <button onclick="verifyTopup('${t.id}', false)" class="flex-1 py-2 rounded-lg bg-red-500/20 text-red-400 text-xs font-display hover:bg-red-500/30">ປະຕິເສດ</button>
-      </div>
-    </div>`;
-  }).join('') || `<div class="col-span-full text-center py-10 text-mist-400"><i class="fa-solid fa-check-double text-3xl mb-2"></i><p>ບໍ່ມີການເຕີມເງິນທີ່ລໍຖ້າກວດສອບ</p></div>`;
-}
-function verifyTopup(topupId, approve){
-  const topups = loadDB(DB_KEYS.topups, []);
-  const t = topups.find(x=>x.id===topupId); if(!t) return;
-  t.status = approve? 'completed':'rejected'; t.verifiedAt = nowISO();
-  saveDB(DB_KEYS.topups, topups);
-  if(approve){
-    const users = loadDB(DB_KEYS.users, []);
-    const u = users.find(x=>x.id===t.userId);
-    if(u){ u.balance = (u.balance||0) + t.amount; saveDB(DB_KEYS.users, users); }
-    notifyUser(t.userId, 'ເຕີມເງິນສຳເລັດ', `ທ່ານໄດ້ຮັບ ₭${fmtK(t.amount)}`);
-  } else {
-    notifyUser(t.userId, 'ການເຕີມເງິນຖືກປະຕິເສດ', 'ກະລຸນາກວດສອບສະລິບການໂອນເງິນ ຫຼື ຕິດຕໍ່ແອດມິນ.');
-  }
-  log('TOPUP_'+(approve?'APPROVE':'REJECT'), `Topup ${topupId}`);
-  renderAdminTopups(); renderAdminOverview();
-  toastOk(approve? 'ອະນຸມັດການເຕີມເງິນສຳເລັດ' : 'ປະຕິເສດການເຕີມເງິນແລ້ວ');
-}
-
-function renderCheckoutSummary(product, order){
-  document.getElementById('checkoutSummary').innerHTML = `
-    <img src="${product.images[0]}" class="w-24 h-24 rounded-lg object-cover border border-ink-700">
-    <div class="flex-1"><p class="text-xs text-mist-400 font-mono">${order.id}</p><p class="font-display text-mist-100 font-600">${escapeHtml(product.name)}</p><p class="font-mono text-ion-400 font-700 mt-1">₭ ${fmtK(product.price)}</p></div>`;
-  document.getElementById('qrAmount').textContent = `₭ ${fmtK(product.price)}`;
-  document.getElementById('bankAmount').textContent = `₭ ${fmtK(product.price)}`;
-  const payload = `VAULTPLAY|ORDER:${order.id}|AMOUNT:${product.price}|ACCT:12010094357757 0`;
-  renderPaymentQr('checkoutQrHolder', payload);
-  startCountdown(15*60, ['checkoutTimer'], ()=>{ toastErr('ໝົດເວລາຊຳລະເງິນສຳລັບອໍເດີນີ້, ກະລຸນາສັ່ງຊື້ໃໝ່'); });
-}
-function setPayMethod(m){
-  CURRENT_PAY_METHOD = m;
-  document.getElementById('pm-qr').classList.toggle('hidden', m!=='qr');
-  document.getElementById('pm-bank').classList.toggle('hidden', m!=='bank');
-  document.getElementById('pmQrBtn').className = 'flex-1 py-2.5 rounded-lg font-display font-600 ' + (m==='qr'?'bg-plasma-500 text-white':'bg-ink-700 text-mist-300');
-  document.getElementById('pmBankBtn').className = 'flex-1 py-2.5 rounded-lg font-display font-600 ' + (m==='bank'?'bg-plasma-500 text-white':'bg-ink-700 text-mist-300');
-}
-document.getElementById('slipInput').addEventListener('change', function(e){
-  const file = e.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev){ const prev = document.getElementById('slipPreview'); prev.src = ev.target.result; prev.classList.remove('hidden'); window._slipDataUrl = ev.target.result; };
-  reader.readAsDataURL(file);
-});
-async function submitPayment(){
-  if(!CURRENT_CHECKOUT_ORDER) return toastErr('ບໍ່ພົບອໍເດີ');
-  if(!window._slipDataUrl) return toastErr('ກະລຸນາອັບໂຫຼດສະລິບການໂອນເງິນກ່ອນ');
-  try{
-    await api.submitPayment({orderId:CURRENT_CHECKOUT_ORDER.id, method:CURRENT_PAY_METHOD, slipDataUrl:window._slipDataUrl});
-    notifyUser(CURRENT_CHECKOUT_ORDER.userId, 'ໄດ້ຮັບການຊຳລະເງິນແລ້ວ', 'ອໍເດີຂອງທ່ານກຳລັງລໍຖ້າການກວດສອບຈາກແອດມິນ.');
-    Swal.fire({ icon:'success', title:'ສົ່ງການຊຳລະເງິນສຳເລັດ', text:'ລໍຖ້າແອດມິນກວດສອບແລະຢືນຢັນ', background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC' });
-    window._slipDataUrl = null;
-    document.getElementById('slipPreview').classList.add('hidden');
-    updateHeroStats();
-    go('dashboard'); dashTab('orders');
-  }catch(e){ toastErr(e.message); }
-}
-function notifyUser(userId, title, message){
-  const users = loadDB(DB_KEYS.users,[]);
-  const user = users.find(u=>u.id===userId); if(!user) return;
-  user.notifications.push({ id:uid('ntf'), title, message, read:false, at: nowISO() });
-  saveDB(DB_KEYS.users, users);
-}
-
-async function buyNow(productId){
-  if(!SESSION || SESSION.role!=='user'){ toastInfo('ກະລຸນາເຂົ້າສູ່ລະບົບກ່ອນຊື້ສິນຄ້າ'); closeProductModal(); go('auth'); return; }
-  const product = await api.getProduct(productId);
-  if(!product || product.status!=='available') return toastErr('ສິນຄ້ານີ້ບໍ່ພ້ອມຂາຍແລ້ວ');
-  const user = currentUser();
-  if(!user) return;
-  if((user.balance||0) < product.price){
-    document.getElementById('productModal').classList.add('hidden');
-    Swal.fire({
-      icon:'warning', title:'ຍອດເງິນໃນກະເປົາບໍ່ພຽງພໍ',
-      html:`ທ່ານມີ <b class="text-ion-400">₭${fmtK(user.balance||0)}</b><br>ສິນຄ້ານີ້ລາຄາ <b class="text-ion-400">₭${fmtK(product.price)}</b><br><br>ກະລຸນາເຕີມເງິນເຂົ້າກະເປົາກ່ອນ`,
-      background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC', confirmButtonText:'ໄປເຕີມເງິນ'
-    }).then(()=>{ go('dashboard'); dashTab('wallet'); });
-    return;
-  }
-  const users = loadDB(DB_KEYS.users, []);
-  const uIdx = users.findIndex(u=>u.id===user.id);
-  users[uIdx].balance = (users[uIdx].balance||0) - product.price;
-  saveDB(DB_KEYS.users, users);
-  const products = loadDB(DB_KEYS.products, []);
-  const pIdx = products.findIndex(p=>p.id===productId);
-  if(products[pIdx].stock !== undefined && products[pIdx].stock !== null && products[pIdx].stock !== ''){
-    const remaining = Math.max(0, (parseInt(products[pIdx].stock)||0) - 1);
-    products[pIdx].stock = remaining;
-    if(remaining <= 0) products[pIdx].status = 'sold';
-  } else {
-    products[pIdx].status = 'sold';
-  }
-  saveDB(DB_KEYS.products, products);
-  const orders = loadDB(DB_KEYS.orders, []);
-  const order = {
-    id: uid('ord'), userId:user.id, productId, amount:product.price,
-    status:'completed', slip:null, paymentMethod:'wallet',
-    createdAt: nowISO(), verifiedAt: nowISO(),
-    deliveryCode: product.deliveryCode || `${product.name} — ຕິດຕໍ່ແອດມິນເພື່ອຮັບຂໍ້ມູນໄອດີ`,
-    deliveryVideoUrl: product.videoUrl || null
-  };
-  orders.push(order); saveDB(DB_KEYS.orders, orders);
-  log('ORDER_WALLET_PAY', `Order ${order.id} paid via wallet for ${product.name} (₭${product.price})`);
-  notifyUser(user.id, 'ຊື້ສິນຄ້າສຳເລັດ', `ທ່ານໄດ້ຊື້ "${product.name}" ສຳເລັດ, ຫັກເງິນຈາກກະເປົາ ₭${fmtK(product.price)}. ເບິ່ງລະຫັດໄອດີໄດ້ທີ່ "ເບິ່ງລະຫັດທີຊື້ມາ"`);
-  document.getElementById('productModal').classList.add('hidden');
-  renderAuthArea();
-  renderHomeGrids();
-  updateHeroStats();
-  renderLiveActivity();
-  if(document.getElementById('view-products').classList.contains('active')) renderProductList();
-  Swal.fire({
-    icon:'success', title:'ຊື້ສິນຄ້າສຳເລັດ!',
-    html:`ຫັກເງິນຈາກກະເປົາ <b class="text-ion-400">₭${fmtK(product.price)}</b> ແລ້ວ<br>ຍອດເງິນຄົງເຫຼືອ: <b class="text-ion-400">₭${fmtK(users[uIdx].balance)}</b><br><br>ເບິ່ງລະຫັດໄອດີໄດ້ທີ່ "ເບິ່ງລະຫັດທີຊື້ມາ"`,
-    background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC'
-  });
-  go('dashboard'); dashTab('mycards');
-}
-
-function adminTab(tab){
-  document.querySelectorAll('.admincontent').forEach(d=>d.classList.add('hidden'));
-  document.getElementById('adm-'+tab).classList.remove('hidden');
-  document.querySelectorAll('.adminnav').forEach(b=>b.classList.remove('bg-ink-700','text-mist-100'));
-  event && event.currentTarget && event.currentTarget.classList.add('bg-ink-700','text-mist-100');
-  if(tab==='products') renderAdminProducts();
-  if(tab==='users') renderAdminUsers();
-  if(tab==='orders') renderAdminOrders();
-  if(tab==='payments') renderAdminPayments();
-  if(tab==='topups') renderAdminTopups();
-  if(tab==='qrsettings') refreshAdminQrPreview();
-  if(tab==='bgsettings') refreshAdminBgPreview();
-  if(tab==='brandsettings') refreshAdminBrandPreview();
-  if(tab==='herobanner') refreshAdminHeroBannerPreview();
-  if(tab==='marqueesettings') refreshAdminMarqueeInput();
-  if(tab==='overview') renderAdminOverview();
-}
-function fillAdmin(){ renderAdminOverview(); }
-
-async function renderAdminOverview(){
-  const users = await syncAllUsersFromFirestore();
-  const products = loadDB(DB_KEYS.products,[]);
-  const orders = loadDB(DB_KEYS.orders,[]);
-  const revenue = orders.filter(o=>o.status==='completed').reduce((s,o)=>s+o.amount,0);
-  document.getElementById('admStatUsers').textContent = users.length;
-  document.getElementById('admStatProducts').textContent = products.length;
-  document.getElementById('admStatOrders').textContent = orders.length;
-  document.getElementById('admStatRevenue').textContent = fmtK(revenue);
-  const recent = [...orders].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt)).slice(0,6);
-  document.getElementById('admRecentOrders').innerHTML = recent.map(o=>{
-    const p = products.find(pp=>pp.id===o.productId)||{name:'-'};
-    const u = users.find(uu=>uu.id===o.userId)||{username:'-'};
-    return `<div class="flex items-center justify-between border-b border-ink-700 pb-2"><span class="text-mist-300">${escapeHtml(u.username)} → ${escapeHtml(p.name)}</span><span class="font-mono text-ion-400">₭ ${fmtK(o.amount)}</span></div>`;
-  }).join('') || `<p class="text-mist-400 text-sm">ຍັງບໍ່ມີອໍເດີ</p>`;
-}
-
-function renderAdminProducts(){
-  const products = loadDB(DB_KEYS.products,[]).sort((a,b)=>new Date(b.date)-new Date(a.date));
-  const statusLabel = {available:'ພ້ອມຂາຍ',sold:'ຂາຍແລ້ວ',hidden:'ເຊື່ອງ'};
-  document.getElementById('admProductTable').innerHTML = products.map(p=>{
-    const stockDisplay = (p.stock===undefined||p.stock===null||p.stock==='') ? '-' : p.stock;
-    return `
-    <tr class="border-b border-ink-800 hover:bg-ink-800/40">
-      <td class="p-3 font-mono text-xs text-mist-400">${p.id.slice(0,10)}</td>
-      <td class="p-3 text-mist-200">${escapeHtml(p.name)}</td>
-      <td class="p-3 text-mist-400">${(CATEGORIES.find(c=>c.id===p.category)||{}).name||p.category}</td>
-      <td class="p-3 font-mono text-ion-400">₭${fmtK(p.price)}</td>
-      <td class="p-3 font-mono text-mist-300">${stockDisplay}</td>
-      <td class="p-3"><span class="text-xs px-2 py-1 rounded bg-ink-700 text-mist-300">${statusLabel[p.status]}</span></td>
-      <td class="p-3 text-mist-400 text-xs">${fmtDate(p.date)}</td>
-      <td class="p-3"><button onclick="openProductForm('${p.id}')" class="text-plasma-400 hover:underline text-xs mr-3">ແກ້ໄຂ</button><button onclick="deleteProduct('${p.id}')" class="text-red-400 hover:underline text-xs">ລຶບ</button></td>
-    </tr>`;
-  }).join('') || `<tr><td colspan="8" class="text-center py-8 text-mist-400">ຍັງບໍ່ມີສິນຄ້າ, ກົດ "ເພີ່ມສິນຄ້າ" ເພື່ອເລີ່ມໂພສສິນຄ້າຂອງທ່ານ</td></tr>`;
-}
-let _pfImages = [];
-function renderPfImagesPreview(){
-  const el = document.getElementById('pfImagesPreview');
-  el.innerHTML = _pfImages.map((src, idx)=>`<div class="relative w-16 h-16"><img src="${src}" class="w-16 h-16 object-cover rounded-lg border border-ink-700"><button type="button" onclick="removePfImage(${idx})" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] flex items-center justify-center">✕</button></div>`).join('');
-}
-function removePfImage(idx){ _pfImages.splice(idx,1); renderPfImagesPreview(); }
-document.getElementById('pfImagesFile')?.addEventListener('change', function(e){
-  const files = Array.from(e.target.files||[]);
-  if(!files.length) return;
-  let remaining = files.length;
-  files.forEach(file=>{
-    const reader = new FileReader();
-    reader.onload = function(ev){ _pfImages.push(ev.target.result); remaining--; if(remaining===0) renderPfImagesPreview(); };
-    reader.readAsDataURL(file);
-  });
-  e.target.value = '';
-});
-function openProductForm(id){
-  const catSel = document.getElementById('pfCategory');
-  catSel.innerHTML = CATEGORIES.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
-  _pfImages = [];
-  document.getElementById('pfVideoUrl').value = '';
-  if(id){
-    const p = loadDB(DB_KEYS.products,[]).find(x=>x.id===id);
-    document.getElementById('pfTitle').textContent='ແກ້ໄຂສິນຄ້າ';
-    document.getElementById('pfId').value=p.id;
-    document.getElementById('pfName').value=p.name;
-    document.getElementById('pfCategory').value=p.category;
-    document.getElementById('pfPrice').value=p.price;
-    document.getElementById('pfRarity').value=p.rarity;
-    document.getElementById('pfStatus').value=p.status;
-    document.getElementById('pfStock').value = (p.stock===undefined||p.stock===null) ? '' : p.stock;
-    _pfImages = [...(p.images||[])];
-    document.getElementById('pfVideoUrl').value = p.videoUrl || '';
-    document.getElementById('pfDesc').value=p.description;
-    document.getElementById('pfDeliveryCode').value=p.deliveryCode||'';
-  } else {
-    document.getElementById('pfTitle').textContent='ເພີ່ມສິນຄ້າ';
-    ['pfId','pfName','pfPrice','pfStock','pfDesc','pfDeliveryCode'].forEach(id2=>document.getElementById(id2).value='');
-    document.getElementById('pfRarity').value='common'; document.getElementById('pfStatus').value='available';
-  }
-  renderPfImagesPreview();
-  document.getElementById('productFormModal').classList.remove('hidden');
-}
-function closeProductForm(){ document.getElementById('productFormModal').classList.add('hidden'); }
-function saveProduct(){
-  const id = document.getElementById('pfId').value;
-  const name = document.getElementById('pfName').value.trim();
-  const category = document.getElementById('pfCategory').value;
-  const price = parseFloat(document.getElementById('pfPrice').value)||0;
-  const rarity = document.getElementById('pfRarity').value;
-  const status = document.getElementById('pfStatus').value;
-  const stockRaw = document.getElementById('pfStock').value;
-  const stock = stockRaw===''? null : Math.max(0, parseInt(stockRaw)||0);
-  const images = _pfImages.length? [..._pfImages] : [`https://api.dicebear.com/7.x/shapes/svg?seed=${encodeURIComponent(name)}`];
-  const videoUrl = document.getElementById('pfVideoUrl').value.trim() || null;
-  const description = document.getElementById('pfDesc').value.trim();
-  const deliveryCode = document.getElementById('pfDeliveryCode').value.trim();
-  if(!name||!price) return toastErr('ກະລຸນາປ້ອນຂໍ້ມູນໃຫ້ຄົບ');
-  const products = loadDB(DB_KEYS.products,[]);
-  if(id){
-    const idx = products.findIndex(p=>p.id===id);
-    products[idx] = {...products[idx], name,category,price,rarity,status,images,videoUrl,description,deliveryCode,stock};
-  } else {
-    products.unshift({ id:uid('prd'), name,category,price,rarity,status,images,videoUrl,description,deliveryCode,stock, date: nowISO(), featured:false });
-  }
-  saveDB(DB_KEYS.products, products);
-  closeProductForm(); renderAdminProducts(); renderHomeGrids(); updateHeroStats();
-  toastOk('ບັນທຶກສິນຄ້າສຳເລັດ');
-}
-function deleteProduct(id){
-  Swal.fire({ title:'ລຶບສິນຄ້ານີ້?', icon:'warning', showCancelButton:true, confirmButtonColor:'#EF4444', cancelButtonColor:'#3A4560', confirmButtonText:'ລຶບ', cancelButtonText:'ຍົກເລີກ', background:'#131826', color:'#E7EAF3' }).then(r=>{
-    if(r.isConfirmed){
-      let products = loadDB(DB_KEYS.products,[]).filter(p=>p.id!==id);
-      saveDB(DB_KEYS.products, products);
-      renderAdminProducts(); renderHomeGrids(); updateHeroStats();
-      toastOk('ລຶບສິນຄ້າສຳເລັດ');
-    }
-  });
-}
-
-async function renderAdminUsers(){
-  const users = await syncAllUsersFromFirestore();
-  document.getElementById('admUserTable').innerHTML = users.map(u=>`
-    <tr class="border-b border-ink-800 hover:bg-ink-800/40">
-      <td class="p-3 text-mist-200">${escapeHtml(u.username)}</td>
-      <td class="p-3 text-mist-400">${escapeHtml(u.email||'-')}</td>
-      <td class="p-3 text-mist-400">${escapeHtml(u.phone||'-')}</td>
-      <td class="p-3 text-mist-400 text-xs">${fmtDate(u.createdAt)}</td>
-      <td class="p-3"><span class="text-xs px-2 py-1 rounded ${u.suspended?'bg-red-500/20 text-red-400':'bg-green-500/20 text-green-400'}">${u.suspended?'ຖືກລະງັບ':'ໃຊ້ງານໄດ້'}</span></td>
-      <td class="p-3">
-        <button onclick="openUserDetailModal('${u.id}')" class="text-xs text-ion-400 hover:underline mr-3">ລາຍລະອຽດ</button>
-        <button onclick="adminTopupUser('${u.id}')" class="text-xs text-green-400 hover:underline mr-3">ເຕີມເງິນ</button>
-        <button onclick="toggleSuspendUser('${u.id}')" class="text-xs text-plasma-400 hover:underline">${u.suspended?'ຍົກເລີກລະງັບ':'ລະງັບບັນຊີ'}</button>
-      </td>
-    </tr>`).join('') || `<tr><td colspan="6" class="text-center py-8 text-mist-400">ຍັງບໍ່ມີຜູ້ໃຊ້</td></tr>`;
-}
-async function openUserDetailModal(userId){
-  const users = await syncAllUsersFromFirestore();
-  const u = users.find(x=>x.id===userId); if(!u) return;
-  const products = loadDB(DB_KEYS.products, []);
-  const orders = loadDB(DB_KEYS.orders, []).filter(o=>o.userId===userId).sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
-  const statusMap = { pending_payment:['ລໍຖ້າຊຳລະ','text-yellow-400'], pending_verification:['ລໍຖ້າກວດສອບ','text-ion-400'], completed:['ສຳເລັດ','text-green-400'], rejected:['ຖືກປະຕິເສດ','text-red-400'] };
-  const orderRows = orders.map(o=>{
-    const p = products.find(pp=>pp.id===o.productId) || {name:'(ສິນຄ້າຖືກລຶບ)'};
-    const st = statusMap[o.status]||['-','text-mist-400'];
-    const codeLine = (o.status==='completed' && o.deliveryCode) ? `<p class="text-xs font-mono text-ion-400 mt-1 truncate">${escapeHtml(o.deliveryCode)}</p>` : '';
-    return `<div class="bg-ink-900 border border-ink-700 rounded-lg p-3">
-      <div class="flex items-center justify-between gap-2">
-        <p class="text-sm text-mist-100 font-display truncate">${escapeHtml(p.name)}</p>
-        <span class="text-xs font-display ${st[1]} shrink-0">${st[0]}</span>
-      </div>
-      <p class="text-xs text-mist-400 mt-0.5">₭ ${fmtK(o.amount)} · ${fmtDate(o.createdAt)}</p>
-      ${codeLine}
-    </div>`;
-  }).join('') || `<p class="text-sm text-mist-400 text-center py-6">ຜູ້ໃຊ້ນີ້ຍັງບໍ່ໄດ້ຊື້ສິນຄ້າຫຍັງ</p>`;
-
-  document.getElementById('userDetailModalBody').innerHTML = `
-    <div class="flex items-start justify-between mb-5">
-      <div class="flex items-center gap-3">
-        <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(u.username)}" class="w-14 h-14 rounded-full border border-plasma-500/40">
-        <div>
-          <h3 class="font-display font-700 text-xl text-mist-100">${escapeHtml(u.username)}</h3>
-          <p class="text-xs text-mist-400">ສະໝັກ: ${fmtDate(u.createdAt)}</p>
-        </div>
-      </div>
-      <button onclick="closeUserDetailModal()" class="text-mist-400 hover:text-mist-100"><i class="fa-solid fa-xmark text-lg"></i></button>
-    </div>
-
-    <div class="grid sm:grid-cols-3 gap-3 mb-5">
-      <div class="bg-ink-900 border border-ink-700 rounded-lg p-3"><p class="text-[10px] text-mist-400 uppercase font-display">ອີເມວ</p><p class="text-sm text-mist-200 mt-0.5 truncate">${escapeHtml(u.email||'-')}</p></div>
-      <div class="bg-ink-900 border border-ink-700 rounded-lg p-3"><p class="text-[10px] text-mist-400 uppercase font-display">ເບີໂທ</p><p class="text-sm text-mist-200 mt-0.5">${escapeHtml(u.phone||'-')}</p></div>
-      <div class="bg-ink-900 border border-ink-700 rounded-lg p-3"><p class="text-[10px] text-mist-400 uppercase font-display">ຍອດເງິນ</p><p class="text-sm text-ion-400 font-mono mt-0.5">₭ ${fmtK(u.balance||0)}</p><button onclick="adminTopupUser('${u.id}')" class="mt-2 text-[11px] px-2.5 py-1 rounded-full bg-green-500/20 text-green-400 hover:bg-green-500/30 font-display"><i class="fa-solid fa-plus mr-1"></i>ເຕີມເງິນ</button></div>
-    </div>
-
-    <div class="bg-ink-900/60 border border-ink-700 rounded-lg p-4 mb-5">
-      <p class="text-xs font-display text-mist-400 uppercase mb-2"><i class="fa-solid fa-key mr-1"></i> ລະຫັດຜ່ານ</p>
-      <p class="text-sm text-mist-400 leading-relaxed">ດ້ວຍເຫດຜົນດ້ານຄວາມປອດໄພ ລະຫັດຜ່ານຂອງລູກຄ້າຖືກເຂົ້າລະຫັດໄວ້ (hashed) ແອດມິນຈຶ່ງບໍ່ສາມາດເບິ່ງລະຫັດເດີມໄດ້. ຖ້າລູກຄ້າຕ້ອງການຄວາມຊ່ວຍເຫຼືອ ແອດມິນສາມາດຕັ້ງລະຫັດຜ່ານໃໝ່ໃຫ້ໄດ້:</p>
-      <button onclick="resetUserPassword('${u.id}')" class="mt-3 px-4 py-2 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-100 text-sm font-display font-600"><i class="fa-solid fa-rotate mr-1"></i> ຕັ້ງລະຫັດຜ່ານໃໝ່</button>
-    </div>
-
-    <p class="font-display text-mist-100 font-600 mb-3">ສິນຄ້າທີ່ຊື້ທັງໝົດ (${orders.length})</p>
-    <div class="space-y-2 max-h-72 overflow-y-auto">${orderRows}</div>
-  `;
-  document.getElementById('userDetailModal').classList.remove('hidden');
-}
-function closeUserDetailModal(){ document.getElementById('userDetailModal').classList.add('hidden'); }
-async function resetUserPassword(userId){
-  const users = loadDB(DB_KEYS.users, []);
-  const u = users.find(x=>x.id===userId);
-  const { value: newPassword, isConfirmed } = await Swal.fire({
-    title: u ? `ຕັ້ງລະຫັດຜ່ານໃໝ່ໃຫ້ ${escapeHtml(u.username)}` : 'ຕັ້ງລະຫັດຜ່ານໃໝ່',
-    input: 'text',
-    inputLabel: 'ລະຫັດຜ່ານໃໝ່ (6 ໂຕຂຶ້ນໄປ)',
-    inputPlaceholder: 'ປ້ອນລະຫັດຜ່ານໃໝ່',
-    showCancelButton: true,
-    confirmButtonText: 'ຕັ້ງລະຫັດຜ່ານ',
-    cancelButtonText: 'ຍົກເລີກ',
-    background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC', cancelButtonColor:'#3A4560',
-    inputValidator: (value)=>{ if(!value || value.length<6) return 'ລະຫັດຜ່ານຕ້ອງ 6 ໂຕຂຶ້ນໄປ'; }
-  });
-  if(!isConfirmed || !newPassword) return;
-  try{
-    const resetFn = firebase.functions().httpsCallable('adminResetPassword');
-    await resetFn({ uid: userId, newPassword });
-    notifyUser(userId, 'ລະຫັດຜ່ານຖືກຕັ້ງໃໝ່', 'ແອດມິນໄດ້ຕັ້ງລະຫັດຜ່ານໃໝ່ໃຫ້ທ່ານ, ກະລຸນາຕິດຕໍ່ແອດມິນເພື່ອຮັບລະຫັດ.');
-    Swal.fire({
-      icon:'success', title:'ຕັ້ງລະຫັດຜ່ານໃໝ່ສຳເລັດ',
-      html:`ລະຫັດຜ່ານໃໝ່ຂອງ <b>${u?escapeHtml(u.username):userId}</b> ແມ່ນ: <br><span class="font-mono text-xl text-ion-400">${escapeHtml(newPassword)}</span><br><br><span class="text-xs text-mist-400">ກະລຸນາສົ່ງລະຫັດນີ້ໃຫ້ລູກຄ້າ, ລະຫັດນີ້ຈະບໍ່ສະແດງອີກຄັ້ງ.</span>`,
-      background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC'
-    });
-  }catch(e){
-    if(e.code==='functions/permission-denied'){
-      toastErr('ບັນຊີແອດມິນນີ້ຍັງບໍ່ໄດ້ຮັບສິດຕັ້ງລະຫັດຜ່ານ — ຕ້ອງແລ່ນ setAdminClaim.js ຄັ້ງດຽວກ່ອນ, ຈາກນັ້ນ logout/login ໃໝ່');
-    } else {
-      toastErr('ຕັ້ງລະຫັດຜ່ານບໍ່ສຳເລັດ: '+(e.message||e.code));
-    }
-  }
-}
-function toggleSuspendUser(id){
-  const users = loadDB(DB_KEYS.users,[]);
-  const u = users.find(x=>x.id===id); u.suspended = !u.suspended;
-  saveDB(DB_KEYS.users, users); renderAdminUsers();
-  toastOk(u.suspended? 'ລະງັບບັນຊີແລ້ວ' : 'ຍົກເລີກການລະງັບແລ້ວ');
-}
-async function adminTopupUser(userId){
-  const users = await syncAllUsersFromFirestore();
-  const u = users.find(x=>x.id===userId); if(!u) return;
-  Swal.fire({
-    title: `ເຕີມເງິນໃຫ້ ${escapeHtml(u.username)}`,
-    html: `<p class="text-xs text-mist-400 mb-2">ຍອດປັດຈຸບັນ: <b class="text-ion-400">₭ ${fmtK(u.balance||0)}</b></p>`,
-    input: 'number',
-    inputLabel: 'ຈຳນວນເງິນທີ່ຈະເຕີມ (₭)',
-    inputPlaceholder: 'e.g. 50000',
-    showCancelButton: true,
-    confirmButtonText: 'ເຕີມເງິນ',
-    cancelButtonText: 'ຍົກເລີກ',
-    background:'#131826', color:'#E7EAF3', confirmButtonColor:'#22C55E', cancelButtonColor:'#3A4560',
-    inputValidator: (value)=>{
-      if(!value || parseInt(value) <= 0) return 'ກະລຸນາປ້ອນຈຳນວນເງິນທີ່ຖືກຕ້ອງ';
-    }
-  }).then(result=>{
-    if(!result.isConfirmed) return;
-    const amount = Math.max(0, parseInt(result.value)||0);
-    const users2 = loadDB(DB_KEYS.users, []);
-    const idx = users2.findIndex(x=>x.id===userId);
-    if(idx<0) return;
-    users2[idx].balance = (users2[idx].balance||0) + amount;
-    saveDB(DB_KEYS.users, users2);
-    notifyUser(userId, 'ເຕີມເງິນໂດຍແອດມິນ', `ແອດມິນໄດ້ເຕີມເງິນ ₭${fmtK(amount)} ເຂົ້າກະເປົາຂອງທ່ານ ໂດຍກົງ.`);
-    log('ADMIN_TOPUP', `Admin credited ₭${amount} to ${users2[idx].username} manually`);
-    renderAdminUsers();
-    renderAdminOverview();
-    const detailModal = document.getElementById('userDetailModal');
-    if(detailModal && !detailModal.classList.contains('hidden')) openUserDetailModal(userId);
-    toastOk(`ເຕີມເງິນ ₭${fmtK(amount)} ໃຫ້ ${users2[idx].username} ສຳເລັດ`);
-  });
-}
-
-
-function renderAdminOrders(){
-  const orders = loadDB(DB_KEYS.orders,[]).sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
-  const users = loadDB(DB_KEYS.users,[]); const products = loadDB(DB_KEYS.products,[]);
-  const statusMap = { pending_payment:['ລໍຖ້າຊຳລະ','text-yellow-400'], pending_verification:['ລໍຖ້າກວດສອບ','text-ion-400'], completed:['ສຳເລັດ','text-green-400'], rejected:['ຖືກປະຕິເສດ','text-red-400'] };
-  document.getElementById('admOrderTable').innerHTML = orders.map(o=>{
-    const u = users.find(x=>x.id===o.userId)||{username:'-'};
-    const p = products.find(x=>x.id===o.productId)||{name:'-'};
-    const st = statusMap[o.status]||['-','text-mist-400'];
-    return `<tr class="border-b border-ink-800 hover:bg-ink-800/40">
-      <td class="p-3 font-mono text-xs text-mist-400">${o.id.slice(0,10)}</td>
-      <td class="p-3 text-mist-200">${escapeHtml(u.username)}</td>
-      <td class="p-3 text-mist-300">${escapeHtml(p.name)}</td>
-      <td class="p-3 font-mono text-ion-400">₭${fmtK(o.amount)}</td>
-      <td class="p-3 text-xs font-display ${st[1]}">${st[0]}</td>
-      <td class="p-3">${o.status==='pending_verification'?`<button onclick="adminTab('payments')" class="text-xs text-plasma-400 hover:underline">ໄປໜ້າຢືນຢັນ</button>`:'-'}</td>
-    </tr>`;
-  }).join('') || `<tr><td colspan="6" class="text-center py-8 text-mist-400">ຍັງບໍ່ມີອໍເດີ</td></tr>`;
-}
-
-function renderAdminPayments(){
-  const orders = loadDB(DB_KEYS.orders,[]).filter(o=>o.status==='pending_verification');
-  const users = loadDB(DB_KEYS.users,[]); const products = loadDB(DB_KEYS.products,[]);
-  document.getElementById('admPaymentList').innerHTML = orders.map(o=>{
-    const u = users.find(x=>x.id===o.userId)||{username:'-'};
-    const p = products.find(x=>x.id===o.productId)||{name:'-'};
-    return `<div class="bg-ink-800/60 border border-ink-700 rounded-xl p-4">
-      <img src="${o.slip}" class="w-full h-40 object-cover rounded-lg border border-ink-700 mb-3 cursor-zoom-in" onclick="openImgLightbox('${o.slip}')">
-      <p class="text-sm text-mist-200 font-display">${escapeHtml(p.name)}</p>
-      <p class="text-xs text-mist-400">${escapeHtml(u.username)} · ₭${fmtK(o.amount)} · ${o.paymentMethod==='qr'?'QR':'ໂອນທະນາຄານ'}</p>
-      <div class="flex gap-2 mt-3"><button onclick="openImgLightbox('${o.slip}')" class="flex-1 py-2 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-200 text-xs font-display"><i class="fa-solid fa-expand mr-1"></i>ເບິ່ງເຕັມ</button></div>
-      <div class="flex gap-2 mt-2">
-        <button onclick="verifyOrder('${o.id}', true)" class="flex-1 py-2 rounded-lg bg-green-500/20 text-green-400 text-xs font-display hover:bg-green-500/30">ອະນຸມັດ</button>
-        <button onclick="verifyOrder('${o.id}', false)" class="flex-1 py-2 rounded-lg bg-red-500/20 text-red-400 text-xs font-display hover:bg-red-500/30">ປະຕິເສດ</button>
-      </div>
-    </div>`;
-  }).join('') || `<div class="col-span-full text-center py-10 text-mist-400"><i class="fa-solid fa-check-double text-3xl mb-2"></i><p>ບໍ່ມີການຊຳລະທີ່ລໍຖ້າກວດສອບ</p></div>`;
-}
-function verifyOrder(orderId, approve){
-  const orders = loadDB(DB_KEYS.orders,[]);
-  const order = orders.find(o=>o.id===orderId); if(!order) return;
-  order.status = approve? 'completed':'rejected';
-  order.verifiedAt = nowISO();
-  if(approve){
-    const products = loadDB(DB_KEYS.products,[]);
-    const p = products.find(x=>x.id===order.productId);
-    if(p){
-      if(p.stock !== undefined && p.stock !== null && p.stock !== ''){
-        const remaining = Math.max(0, (parseInt(p.stock)||0) - 1);
-        p.stock = remaining;
-        if(remaining <= 0) p.status='sold';
-      } else { p.status='sold'; }
-      saveDB(DB_KEYS.products, products);
-      order.deliveryCode = p.deliveryCode || `${p.name} — ຕິດຕໍ່ແອດມິນເພື່ອຮັບຂໍ້ມູນໄອດີ`;
-      order.deliveryVideoUrl = p.videoUrl || null;
-    }
-  }
-  saveDB(DB_KEYS.orders, orders);
-  if(approve){ notifyUser(order.userId, 'ການຊຳລະເງິນຖືກຢືນຢັນ', 'ອໍເດີຂອງທ່ານສຳເລັດແລ້ວ! ເບິ່ງລະຫັດໄອດີໄດ້ທີ່ ປະຫວັດການສັ່ງຊື້ ຫຼື ເບິ່ງລະຫັດທີຊື້ມາ.'); }
-  else { notifyUser(order.userId, 'ການຊຳລະເງິນຖືກປະຕິເສດ', 'ກະລຸນາກວດສອບສະລິບການໂອນເງິນ ຫຼື ຕິດຕໍ່ແອດມິນ.'); }
-  log('PAYMENT_'+(approve?'APPROVE':'REJECT'), `Order ${orderId}`);
-  renderAdminPayments(); renderAdminOrders(); renderAdminOverview(); renderHomeGrids(); updateHeroStats();
-  toastOk(approve? 'ອະນຸມັດການຊຳລະເງິນສຳເລັດ' : 'ປະຕິເສດການຊຳລະເງິນແລ້ວ');
-}
-
-function broadcastNotification(){
-  const title = document.getElementById('broadcastTitle').value.trim();
-  const message = document.getElementById('broadcastMsg').value.trim();
-  if(!title||!message) return toastErr('ກະລຸນາປ້ອນຫົວຂໍ້ ແລະ ຂໍ້ຄວາມ');
-  const users = loadDB(DB_KEYS.users,[]);
-  users.forEach(u=> u.notifications.push({ id:uid('ntf'), title, message, read:false, at: nowISO() }));
-  saveDB(DB_KEYS.users, users);
-  document.getElementById('broadcastTitle').value=''; document.getElementById('broadcastMsg').value='';
-  toastOk(`ສົ່ງແຈ້ງເຕືອນໃຫ້ຜູ້ໃຊ້ ${users.length} ຄົນສຳເລັດ`);
-}
 </script>
 
 
