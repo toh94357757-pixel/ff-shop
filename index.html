@@ -1515,24 +1515,26 @@ async function deleteUser(id){
   if(!u) return;
   const result = await Swal.fire({
     icon:'warning',
-    title:`ລຶບຜູ້ໃຊ້ "${escapeHtml(u.username)}"?`,
-    html:`<p class="text-sm text-mist-400">ຂໍ້ມູນຜູ້ໃຊ້ ແລະ ປະຫວັດຈະຖືກລຶບທັງໝົດ ບໍ່ສາມາດກູ້ຄືນໄດ້</p>`,
+    title:`ລຶ້ບຜູ້ໃຊ້ "${escapeHtml(u.username)}"?`,
+    html:`<p class="text-sm text-mist-400">ຂໍ້ມູນຜູ້ໃຊ້ ແລະ ປະຫວັດຈະຖີກລຶ້ບທັງຫມົດ ບໍ່ສາມາດກູ້ຄືນໄດ້</p>`,
     showCancelButton: true,
-    confirmButtonText: 'ລຶບເລີຍ',
+    confirmButtonText: 'ລຶ້ບເລີຍ',
     cancelButtonText: 'ຍົກເລີກ',
     background:'#131826', color:'#E7EAF3', confirmButtonColor:'#EF4444', cancelButtonColor:'#3A4560'
   });
   if(!result.isConfirmed) return;
+  // 1. ລຶບຈາກ localStorage
   const updated = users.filter(x=>x.id!==id);
-  saveDB(DB_KEYS.users, updated);
-  // ລຶບ topups ຂອງຜູ້ໃຊ້ນີ້ດ້ວຍ
+  localStorage.setItem(DB_KEYS.users, JSON.stringify(updated));
   const topups = loadDB(DB_KEYS.topups,[]).filter(t=>t.userId!==id);
   saveDB(DB_KEYS.topups, topups);
-  // ລຶບ orders ຂອງຜູ້ໃຊ້ນີ້ດ້ວຍ
   const orders = loadDB(DB_KEYS.orders,[]).filter(o=>o.userId!==id);
   saveDB(DB_KEYS.orders, orders);
+  // 2. ລຶບຈາກ Firestore ດ້ວຍ — ກັນ sync ຄືນມາ
+  try{ await fbDb.collection('users').doc(id).delete(); }
+  catch(e){ console.warn('Firestore user delete failed', e); }
   log('ADMIN_DELETE_USER', `Admin deleted user ${u.username} (${id})`);
-  toastOk(`ລຶບຜູ້ໃຊ້ ${u.username} ສຳເລັດ`);
+  toastOk(`ລຶ້ບຜູ້ໃຊ້ ${u.username} ສຳເລີດ`);
   renderAdminUsers();
   renderAdminOverview();
 }
