@@ -221,13 +221,24 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
 
 <div id="adm-qrsettings" class="admincontent hidden">
   <h2 class="font-display font-700 text-2xl text-mist-100 mb-5">ຕັ້ງຄ່າ QR ຮັບຊຳລະເງິນ</h2>
-  <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6 max-w-lg">
-    <p class="text-sm text-mist-400 mb-4">ອັບໂຫຼດຮູບ QR Code ຂອງແອດມິນ (ເຊັ່ນ BCEL One, LDB, ONEPAY) ເພື່ອໃຫ້ລູກຄ້າສະແກນຊຳລະເງິນແທນ QR </p>
-    <div id="adminQrPreview" class="w-48 h-48 rounded-lg bg-ink-900 border border-ink-700 flex items-center justify-center text-mist-400 text-sm mb-4">ຍັງບໍ່ມີ QR</div>
-    <input id="adminQrInput" type="file" accept="image/*" class="block w-full text-sm text-mist-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-ink-700 file:text-mist-100 hover:file:bg-ink-600">
-    <div class="flex gap-2 mt-4">
-      <button onclick="saveAdminQr()" class="px-5 py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 text-sm">ບັນທຶກ QR</button>
-      <button onclick="removeAdminQr()" class="px-5 py-2.5 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-300 font-display font-600 text-sm">ລຶບ QR</button>
+  <div class="space-y-6 max-w-lg">
+    <!-- QR upload -->
+    <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6">
+      <h3 class="font-display font-600 text-mist-100 mb-2">ຮູບ QR Code</h3>
+      <p class="text-sm text-mist-400 mb-4">ອັບໂຫຼດຮູບ QR Code ຂອງແອດມິນ (ເຊັ່ນ BCEL One, LDB, ONEPAY) ເພື່ອໃຫ້ລູກຄ້າສະແກນຊຳລະເງິນ</p>
+      <div id="adminQrPreview" class="w-48 h-48 rounded-lg bg-ink-900 border border-ink-700 flex items-center justify-center text-mist-400 text-sm mb-4">ຍັງບໍ່ມີ QR</div>
+      <input id="adminQrInput" type="file" accept="image/*" class="block w-full text-sm text-mist-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-ink-700 file:text-mist-100 hover:file:bg-ink-600">
+      <div class="flex gap-2 mt-4">
+        <button onclick="saveAdminQr()" class="px-5 py-2.5 rounded-lg bg-plasma-500 hover:bg-plasma-600 font-display font-600 text-sm">ບັນທຶກ QR</button>
+        <button onclick="removeAdminQr()" class="px-5 py-2.5 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-300 font-display font-600 text-sm">ລຶບ QR</button>
+      </div>
+    </div>
+    <!-- QR per amount -->
+    <div class="bg-ink-800/60 border border-ink-700 rounded-xl p-6">
+      <h3 class="font-display font-600 text-mist-100 mb-1">QR ແຍກຕາມຈຳນວນເງິນ</h3>
+      <p class="text-sm text-mist-400 mb-4">ຖ້າອັບໂຫຼດ QR ສຳລັບຈຳນວນໃດ, ລູກຄ້າທີ່ເລືອກຈຳນວນນັ້ນຈະເຫັນ QR ສະເພາະຂອງຈຳນວນນັ້ນ. ຖ້າບໍ່ອັບໂຫຼດ ຈະໃຊ້ QR ຫຼັກ.</p>
+      <div class="space-y-3" id="qrAmountList"></div>
+      <button onclick="renderQrAmountAdmin()" class="mt-4 text-xs text-ion-400 hover:underline"><i class="fa-solid fa-rotate-right mr-1"></i>ໂຫຼດຄືນ</button>
     </div>
   </div>
 </div>
@@ -941,6 +952,52 @@ document.getElementById('adminBgInput')?.addEventListener('change', async functi
     window._pendingAdminBg = dataUrl;
   }catch(err){ toastErr('ບໍ່ສາມາດອ່ານຮູບນີ້ໄດ້'); }
 });
+function renderQrAmountAdmin(){
+  const settings = loadDB(DB_KEYS.settings, {});
+  const amounts = settings.topupAmounts || [10000,20000,50000,100000,200000,500000,1000000];
+  const qrMap = settings.qrByAmount || {};
+  const el = document.getElementById('qrAmountList');
+  if(!el) return;
+  el.innerHTML = amounts.map(amt => {
+    const hasQr = !!qrMap[amt];
+    return `<div class="flex items-center gap-3 p-3 rounded-lg bg-ink-900 border border-ink-700">
+      <div class="w-14 h-14 rounded-lg border border-ink-600 overflow-hidden flex items-center justify-center bg-ink-800 shrink-0">
+        ${hasQr ? `<img src="${qrMap[amt]}" class="w-full h-full object-contain">` : '<span class="text-[10px] text-mist-400">ໃຊ້QRຫຼັກ</span>'}
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="font-mono text-sm text-ion-400">₭ ${fmtK(amt)}</p>
+        <p class="text-[11px] text-mist-400">${hasQr ? 'QR ສະເພາະ' : 'ໃຊ້ QR ຫຼັກ'}</p>
+      </div>
+      <div class="flex flex-col gap-1.5 shrink-0">
+        <label class="cursor-pointer px-3 py-1.5 rounded-lg bg-plasma-500/20 text-plasma-300 text-xs font-display hover:bg-plasma-500/30">
+          <i class="fa-solid fa-upload mr-1"></i>ອັບໂຫຼດ
+          <input type="file" accept="image/*" class="hidden" onchange="saveQrForAmount(${amt}, this)">
+        </label>
+        ${hasQr ? `<button onclick="removeQrForAmount(${amt})" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-display hover:bg-red-500/30"><i class="fa-solid fa-trash mr-1"></i>ລຶບ</button>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+async function saveQrForAmount(amt, input){
+  const file = input.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const settings = loadDB(DB_KEYS.settings, {});
+    if(!settings.qrByAmount) settings.qrByAmount = {};
+    settings.qrByAmount[amt] = e.target.result;
+    saveDB(DB_KEYS.settings, settings);
+    toastOk(`ບັນທຶກ QR ສຳລັບ ₭${fmtK(amt)} ສຳເລັດ`);
+    renderQrAmountAdmin();
+  };
+  reader.readAsDataURL(file);
+}
+function removeQrForAmount(amt){
+  const settings = loadDB(DB_KEYS.settings, {});
+  if(settings.qrByAmount) delete settings.qrByAmount[amt];
+  saveDB(DB_KEYS.settings, settings);
+  toastOk(`ລຶບ QR ສຳລັບ ₭${fmtK(amt)} ແລ້ວ`);
+  renderQrAmountAdmin();
+}
 function saveAdminBg(){
   if(!window._pendingAdminBg) return toastErr('ກະລຸນາເລືອກຮູບພື້ນຫຼັງກ່ອນ');
   const settings = loadDB(DB_KEYS.settings, {qrImage:null, bgImage:null});
@@ -1215,6 +1272,7 @@ async function adminTab(tab){
   await pullAdminDataFromFirestore();
   if(tab==='products') renderAdminProducts();
   if(tab==='users') renderAdminUsers();
+  if(tab==='qrsettings') renderQrAmountAdmin();
   if(tab==='orders') renderAdminOrders();
   if(tab==='payments') renderAdminPayments();
   if(tab==='topups') renderAdminTopups();
@@ -1416,34 +1474,34 @@ function closeUserDetailModal(){ document.getElementById('userDetailModal').clas
 async function resetUserPassword(userId){
   const users = loadDB(DB_KEYS.users, []);
   const u = users.find(x=>x.id===userId);
+  if(!u) return;
   const { value: newPassword, isConfirmed } = await Swal.fire({
-    title: u ? `ຕັ້ງລະຫັດຜ່ານໃໝ່ໃຫ້ ${escapeHtml(u.username)}` : 'ຕັ້ງລະຫັດຜ່ານໃໝ່',
+    title: `ຕ້ັງລະຫັດຜ່ານໃຫມ່ໃຫ້ ${escapeHtml(u.username)}`,
     input: 'text',
-    inputLabel: 'ລະຫັດຜ່ານໃໝ່ (6 ໂຕຂຶ້ນໄປ)',
-    inputPlaceholder: 'ປ້ອນລະຫັດຜ່ານໃໝ່',
+    inputLabel: 'ລະຫັດຜ່ານໃຫມ່ (6 ໂຕຂຶ້ນໄປ)',
+    inputPlaceholder: 'ປ້ອນລະຫັດຜ່ານໃຫມ່',
     showCancelButton: true,
-    confirmButtonText: 'ຕັ້ງລະຫັດຜ່ານ',
+    confirmButtonText: 'ຕ້ັງລະຫັດຜ່ານ',
     cancelButtonText: 'ຍົກເລີກ',
     background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC', cancelButtonColor:'#3A4560',
-    inputValidator: (value)=>{ if(!value || value.length<6) return 'ລະຫັດຜ່ານຕ້ອງ 6 ໂຕຂຶ້ນໄປ'; }
+    inputValidator: v=>{ if(!v||v.length<6) return 'ລະຫັດຜ່ານຕ້ອງ 6 ໂຕຂຶ້ນໄປ'; }
   });
   if(!isConfirmed || !newPassword) return;
-  try{
-    const resetFn = firebase.functions().httpsCallable('adminResetPassword');
-    await resetFn({ uid: userId, newPassword });
-    notifyUser(userId, 'ລະຫັດຜ່ານຖືກຕັ້ງໃໝ່', 'ແອດມິນໄດ້ຕັ້ງລະຫັດຜ່ານໃໝ່ໃຫ້ທ່ານ, ກະລຸນາຕິດຕໍ່ແອດມິນເພື່ອຮັບລະຫັດ.');
-    Swal.fire({
-      icon:'success', title:'ຕັ້ງລະຫັດຜ່ານໃໝ່ສຳເລັດ',
-      html:`ລະຫັດຜ່ານໃໝ່ຂອງ <b>${u?escapeHtml(u.username):userId}</b> ແມ່ນ: <br><span class="font-mono text-xl text-ion-400">${escapeHtml(newPassword)}</span><br><br><span class="text-xs text-mist-400">ກະລຸນາສົ່ງລະຫັດນີ້ໃຫ້ລູກຄ້າ, ລະຫັດນີ້ຈະບໍ່ສະແດງອີກຄັ້ງ.</span>`,
-      background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC'
-    });
-  }catch(e){
-    if(e.code==='functions/permission-denied'){
-      toastErr('ບັນຊີແອດມິນນີ້ຍັງບໍ່ໄດ້ຮັບສິດຕັ້ງລະຫັດຜ່ານ — ຕ້ອງແລ່ນ setAdminClaim.js ຄັ້ງດຽວກ່ອນ, ຈາກນັ້ນ logout/login ໃໝ່');
-    } else {
-      toastErr('ຕັ້ງລະຫັດຜ່ານບໍ່ສຳເລັດ: '+(e.message||e.code));
-    }
-  }
+  // hash password ດ້ວຍ SHA-256 (ດຽວກັນກັບ shop.html)
+  const msgBuf = new TextEncoder().encode(newPassword);
+  const hashBuf = await crypto.subtle.digest('SHA-256', msgBuf);
+  const pwHash = Array.from(new Uint8Array(hashBuf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  const idx = users.findIndex(x=>x.id===userId);
+  if(idx<0) return;
+  users[idx].passwordHash = pwHash;
+  saveDB(DB_KEYS.users, users);
+  notifyUser(userId, 'ລະຫັດຜ່ານຖີກຕ້ັງໃຫມ່', 'ແອັດມິນໄດ້ຕ້ັງລະຫັດຜ່ານໃຫມ່ໃຫ້ທ່ານ, ກະລຸນາຕິດຕໍ່ແອັດມິນເພື່ອຮັບລະຫັດຜ່ານໃຫມ່.');
+  log('ADMIN_RESET_PW', `Admin reset password for ${u.username}`);
+  Swal.fire({
+    icon:'success', title:'ຕ້ັງລະຫັດຜ່ານໃຫມ່ສຳເລີດ',
+    html:`ລະຫັດຜ່ານໃຫມ່ຂອງ <b>${escapeHtml(u.username)}</b> ແມ່ນ:<br><span class="font-mono text-xl text-ion-400">${escapeHtml(newPassword)}</span><br><br><span class="text-xs text-mist-400">ກະລຸນາສົ່ງລະຫັດນີ້ໃຫ້ລູກຄ້າ, ລະຫັດນີ້ຈະບໍ່ສະແດງອີກຄ້ັງ.</span>`,
+    background:'#131826', color:'#E7EAF3', confirmButtonColor:'#7C5CFC'
+  });
 }
 function toggleSuspendUser(id){
   const users = loadDB(DB_KEYS.users,[]);
