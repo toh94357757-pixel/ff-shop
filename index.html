@@ -144,19 +144,19 @@ body { font-family: 'Inter','Noto Sans Lao',sans-serif; background:#0B0F19; colo
       <aside class="bg-ink-800/60 border border-ink-700 rounded-xl p-3 sm:p-4 h-fit lg:sticky lg:top-20">
         <div class="flex items-center gap-2 px-2 pb-3 mb-2 border-b border-ink-700"><i class="fa-solid fa-user-shield text-plasma-400"></i><span class="font-display font-600 text-mist-100 text-sm">Admin Panel</span></div>
         <nav class="grid grid-cols-2 lg:grid-cols-1 gap-1 font-display text-xs sm:text-sm">
-          <button onclick="adminTab('overview')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-gauge w-4"></i> Dashboard</button>
-          <button onclick="adminTab('products')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-box w-4"></i> ຈັດການສິນຄ້າ</button>
-          <button onclick="adminTab('users')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-users w-4"></i> ຈັດການຜູ້ໃຊ້</button>
-          <button onclick="adminTab('orders')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-cart-shopping w-4"></i> ຈັດການອໍເດີ</button>
-          <button onclick="adminTab('payments')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-money-check-dollar w-4"></i> ຢືນຢັນການຊຳລະ</button>
-          <button onclick="adminTab('topups')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-wallet w-4"></i> ຢືນຢັນການເຕີມເງິນ <span id="topupBadge" class="hidden ml-1 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-red-500 text-white text-[10px] font-bold align-middle"></span></button>
-          <button onclick="adminTab('qrsettings')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-qrcode w-4"></i> ຕັ້ງຄ່າ QR ຊຳລະເງິນ</button>
-          <button onclick="adminTab('bgsettings')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-image w-4"></i> ຕັ້ງຄ່າພື້ນຫຼັງເວັບ</button>
-          <button onclick="adminTab('brandsettings')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-shield-halved w-4"></i> ໂລໂກ ແລະ ຊື່ເວັບ</button>
-          <button onclick="adminTab('herobanner')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-panorama w-4"></i> ແບນເນີ Hero</button>
-          <button onclick="adminTab('marqueesettings')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-bullhorn w-4"></i> ຂໍ້ຄວາມແລ່ນ</button>
-          <button onclick="adminTab('fbnotify')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-brands fa-facebook-messenger w-4"></i> ແຈ້ງເຕືອນເຟສບຸກ</button>
-          <button onclick="adminTab('notifications')" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-bell w-4"></i> ຈັດການແຈ້ງເຕືອນ</button>
+          <button onclick="adminTab('overview')" data-tab="overview" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-gauge w-4"></i> Dashboard</button>
+          <button onclick="adminTab('products')" data-tab="products" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-box w-4"></i> ຈັດການສິນຄ້າ</button>
+          <button onclick="adminTab('users')" data-tab="users" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-users w-4"></i> ຈັດການຜູ້ໃຊ້</button>
+          <button onclick="adminTab('orders')" data-tab="orders" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-cart-shopping w-4"></i> ຈັດການອໍເດີ</button>
+          <button onclick="adminTab('payments')" data-tab="payments" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-money-check-dollar w-4"></i> ຢືນຢັນການຊຳລະ</button>
+          <button onclick="adminTab('topups')" data-tab="topups" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-wallet w-4"></i> ຢືນຢັນການເຕີມເງິນ <span id="topupBadge" class="hidden ml-1 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-red-500 text-white text-[10px] font-bold align-middle"></span></button>
+          <button onclick="adminTab('qrsettings')" data-tab="qrsettings" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-qrcode w-4"></i> ຕັ້ງຄ່າ QR ຊຳລະເງິນ</button>
+          <button onclick="adminTab('bgsettings')" data-tab="bgsettings" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-image w-4"></i> ຕັ້ງຄ່າພື້ນຫຼັງເວັບ</button>
+          <button onclick="adminTab('brandsettings')" data-tab="brandsettings" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-shield-halved w-4"></i> ໂລໂກ ແລະ ຊື່ເວັບ</button>
+          <button onclick="adminTab('herobanner')" data-tab="herobanner" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-panorama w-4"></i> ແບນເນີ Hero</button>
+          <button onclick="adminTab('marqueesettings')" data-tab="marqueesettings" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-bullhorn w-4"></i> ຂໍ້ຄວາມແລ່ນ</button>
+          <button onclick="adminTab('fbnotify')" data-tab="fbnotify" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-brands fa-facebook-messenger w-4"></i> ແຈ້ງເຕືອນເຟສບຸກ</button>
+          <button onclick="adminTab('notifications')" data-tab="notifications" class="adminnav w-full text-left px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg hover:bg-ink-700 text-mist-200"><i class="fa-solid fa-bell w-4"></i> ຈັດການແຈ້ງເຕືອນ</button>
         </nav>
       </aside>
       <div>
@@ -1268,7 +1268,8 @@ async function adminTab(tab){
   document.querySelectorAll('.admincontent').forEach(d=>d.classList.add('hidden'));
   document.getElementById('adm-'+tab).classList.remove('hidden');
   document.querySelectorAll('.adminnav').forEach(b=>b.classList.remove('bg-ink-700','text-mist-100'));
-  event && event.currentTarget && event.currentTarget.classList.add('bg-ink-700','text-mist-100');
+  const _activeBtn = document.querySelector(`.adminnav[data-tab="${tab}"]`);
+  if(_activeBtn) _activeBtn.classList.add('bg-ink-700','text-mist-100');
   await pullAdminDataFromFirestore();
   if(tab==='products') renderAdminProducts();
   if(tab==='users') renderAdminUsers();
