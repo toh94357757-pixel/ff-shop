@@ -465,9 +465,35 @@ const fbDb = firebase.firestore();
 // Firebase Auth needs an email, but this app only collects a username,
 // so we map username -> a fake email address under a private domain.
 function usernameToEmail(username){ return String(username).toLowerCase()+'@vaultplay.app'; }
-async function syncUserToFirestore(user){
-  try{ await fbDb.collection('users').doc(user.id).set(user, {merge:true}); }
+async function syncUserToFirestore(user, opts){
+  try{
+    const data = {...user};
+    // FIX: `balance` must NEVER be written from a local cache copy. A stale
+    // cached balance (e.g. the admin's copy from before a customer bought
+    // something) used to overwrite the real balance in Firestore, so the
+    // deduction "disappeared". Balance is only changed via adjustUserBalance().
+    if(!(opts && opts.withBalance)) delete data.balance;
+    await fbDb.collection('users').doc(user.id).set(data, {merge:true});
+  }
   catch(e){ console.warn('Firestore sync failed for user', user.id, e); }
+}
+// Atomic balance change done on the server copy (Firestore transaction), then
+// mirrored into the local cache. delta < 0 = deduct, delta > 0 = add.
+// opts.strict: throw 'INSUFFICIENT_BALANCE' instead of clamping at 0.
+async function adjustUserBalance(userId, delta, opts){
+  const ref = fbDb.collection('users').doc(userId);
+  const newBal = await fbDb.runTransaction(async tx=>{
+    const snap = await tx.get(ref);
+    const cur = (snap.exists && Number(snap.data().balance)) || 0;
+    if(cur + delta < 0 && opts && opts.strict) throw new Error('INSUFFICIENT_BALANCE');
+    const next = Math.max(0, cur + delta);
+    tx.set(ref, { balance: next }, { merge:true });
+    return next;
+  });
+  const us = loadDB(DB_KEYS.users, []);
+  const i = us.findIndex(u=>u.id===userId);
+  if(i>-1){ us[i].balance = newBal; localStorage.setItem(DB_KEYS.users, JSON.stringify(us)); }
+  return newBal;
 }
 // Pulls every user document from Firestore and merges it into the local
 // cache. Used by the admin panel so registrations made on OTHER devices
@@ -694,7 +720,7 @@ const api = {
       { id: uid('ntf'), title:'ຍິນດີຕ້ອນຮັບສູ່ TOH Shop', message:'ບັນຊີຂອງທ່ານຖືກສ້າງສຳເລັດແລ້ວ.', read:false, at: nowISO() }
     ], createdAt: nowISO() };
     users.push(user); saveDB(DB_KEYS.users, users);
-    await syncUserToFirestore(user);
+    await syncUserToFirestore(user, {withBalance:true});
     log('REGISTER', `New user: ${username}`);
     return { token: 'jwt.'+uid('tok'), user };
   },
@@ -1182,20 +1208,18 @@ function renderRecentAiDecisions(){
     </div>`;
   }).join('') || `<p class="text-mist-400 text-sm text-center py-4">ຍັງບໍ່ມີການຕັດສິນຂອງ AI</p>`;
 }
-function overrideTopupDecision(topupId, approve){
+async function overrideTopupDecision(topupId, approve){
   const topups = loadDB(DB_KEYS.topups, []);
   const t = topups.find(x=>x.id===topupId); if(!t) return;
   const wasApproved = t.status==='completed';
   if(wasApproved === approve) return;
-  const users = loadDB(DB_KEYS.users, []);
-  const idx = users.findIndex(u=>u.id===t.userId);
   if(approve){
     t.status='completed';
-    if(idx>-1){ users[idx].balance=(users[idx].balance||0)+t.amount; saveDB(DB_KEYS.users, users); }
+    try{ await adjustUserBalance(t.userId, t.amount); }catch(e){ console.warn(e); return toastErr('ອັບເດດຍອດເງິນບໍ່ສຳເລັດ'); }
     notifyUser(t.userId, 'ເຕີມເງິນຖືກອະນຸມັດ', `ແອດມິນໄດ້ກວດສອບແລະອະນຸມັດ ₭${fmtK(t.amount)} ໃຫ້ທ່ານແລ້ວ.`);
   } else {
     t.status='rejected';
-    if(idx>-1 && wasApproved){ users[idx].balance = Math.max(0,(users[idx].balance||0)-t.amount); saveDB(DB_KEYS.users, users); }
+    if(wasApproved){ try{ await adjustUserBalance(t.userId, -t.amount); }catch(e){ console.warn(e); return toastErr('ອັບເດດຍອດເງິນບໍ່ສຳເລັດ'); } }
     notifyUser(t.userId, 'ການເຕີມເງິນຖືກຍົກເລີກ', 'ແອດມິນໄດ້ກວດສອບແລະຍົກເລີກລາຍການເຕີມເງິນນີ້.');
   }
   t.verifiedAt = nowISO();
@@ -1204,15 +1228,14 @@ function overrideTopupDecision(topupId, approve){
   renderAdminTopups(); renderAdminOverview();
   toastOk('ອັບເດດແລ້ວ');
 }
-function verifyTopup(topupId, approve){
+async function verifyTopup(topupId, approve){
   const topups = loadDB(DB_KEYS.topups, []);
   const t = topups.find(x=>x.id===topupId); if(!t) return;
+  if(t.status!=='pending_verification') return;
   t.status = approve? 'completed':'rejected'; t.verifiedAt = nowISO();
   saveDB(DB_KEYS.topups, topups);
   if(approve){
-    const users = loadDB(DB_KEYS.users, []);
-    const u = users.find(x=>x.id===t.userId);
-    if(u){ u.balance = (u.balance||0) + t.amount; saveDB(DB_KEYS.users, users); }
+    try{ await adjustUserBalance(t.userId, t.amount); }catch(e){ console.warn(e); t.status='pending_verification'; t.verifiedAt=null; saveDB(DB_KEYS.topups, topups); return toastErr('ອັບເດດຍອດເງິນບໍ່ສຳເລັດ'); }
     notifyUser(t.userId, 'ເຕີມເງິນສຳເລັດ', `ທ່ານໄດ້ຮັບ ₭${fmtK(t.amount)}`);
   } else {
     notifyUser(t.userId, 'ການເຕີມເງິນຖືກປະຕິເສດ', 'ກະລຸນາກວດສອບສະລິບການໂອນເງິນ ຫຼື ຕິດຕໍ່ແອດມິນ.');
@@ -1257,10 +1280,12 @@ setInterval(checkNewTopups, 10000);
 setTimeout(checkNewTopups, 3000);
 
 function notifyUser(userId, title, message){
+  const ntf = { id: uid('ntf'), title, message, read:false, at: nowISO() };
   const users = loadDB(DB_KEYS.users,[]);
-  const user = users.find(u=>u.id===userId); if(!user) return;
-  user.notifications.push({ id:uid('ntf'), title, message, read:false, at: nowISO() });
-  saveDB(DB_KEYS.users, users);
+  const user = users.find(u=>u.id===userId);
+  if(user){ user.notifications = user.notifications||[]; user.notifications.push(ntf); localStorage.setItem(DB_KEYS.users, JSON.stringify(users)); }
+  fbDb.collection('users').doc(userId).set({ notifications: firebase.firestore.FieldValue.arrayUnion(ntf) }, {merge:true})
+    .catch(e=>console.warn('notify failed', e));
 }
 
 async function adminTab(tab){
@@ -1555,14 +1580,13 @@ async function adminTopupUser(userId){
     inputValidator: (value)=>{
       if(!value || parseInt(value) <= 0) return 'ກະລຸນາປ້ອນຈຳນວນເງິນທີ່ຖືກຕ້ອງ';
     }
-  }).then(result=>{
+  }).then(async result=>{
     if(!result.isConfirmed) return;
     const amount = Math.max(0, parseInt(result.value)||0);
+    try{ await adjustUserBalance(userId, amount); }catch(e){ console.warn(e); return toastErr('ອັບເດດຍອດເງິນບໍ່ສຳເລັດ'); }
     const users2 = loadDB(DB_KEYS.users, []);
     const idx = users2.findIndex(x=>x.id===userId);
     if(idx<0) return;
-    users2[idx].balance = (users2[idx].balance||0) + amount;
-    saveDB(DB_KEYS.users, users2);
     notifyUser(userId, 'ເຕີມເງິນໂດຍແອດມິນ', `ແອດມິນໄດ້ເຕີມເງິນ ₭${fmtK(amount)} ເຂົ້າກະເປົາຂອງທ່ານ ໂດຍກົງ.`);
     log('ADMIN_TOPUP', `Admin credited ₭${amount} to ${users2[idx].username} manually`);
     renderAdminUsers();
@@ -1600,10 +1624,10 @@ function renderAdminPayments(){
     const u = users.find(x=>x.id===o.userId)||{username:'-'};
     const p = products.find(x=>x.id===o.productId)||{name:'-'};
     return `<div class="bg-ink-800/60 border border-ink-700 rounded-xl p-4">
-      <img src="${o.slip}" class="w-full h-40 object-cover rounded-lg border border-ink-700 mb-3 cursor-zoom-in" onclick="openImgLightbox('${o.slip}')">
+      ${o.slip ? `<img src="${o.slip}" class="w-full h-40 object-cover rounded-lg border border-ink-700 mb-3 cursor-zoom-in" onclick="openImgLightbox('${o.slip}')">` : `<div class="w-full h-24 flex items-center justify-center rounded-lg border border-ink-700 mb-3 text-ion-400 text-sm font-display"><i class="fa-solid fa-wallet mr-2"></i>ຈ່າຍດ້ວຍກະເປົາເງິນ (ຫັກເງິນແລ້ວ)</div>`}
       <p class="text-sm text-mist-200 font-display">${escapeHtml(p.name)}</p>
-      <p class="text-xs text-mist-400">${escapeHtml(u.username)} · ₭${fmtK(o.amount)} · ${o.paymentMethod==='qr'?'QR':'ໂອນທະນາຄານ'}</p>
-      <div class="flex gap-2 mt-3"><button onclick="openImgLightbox('${o.slip}')" class="flex-1 py-2 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-200 text-xs font-display"><i class="fa-solid fa-expand mr-1"></i>ເບິ່ງເຕັມ</button></div>
+      <p class="text-xs text-mist-400">${escapeHtml(u.username)} · ₭${fmtK(o.amount)} · ${o.paymentMethod==='qr'?'QR':(o.paymentMethod==='balance'?'Wallet':'ໂອນທະນາຄານ')}</p>
+      ${o.slip ? `<div class="flex gap-2 mt-3"><button onclick="openImgLightbox('${o.slip}')" class="flex-1 py-2 rounded-lg bg-ink-700 hover:bg-ink-600 text-mist-200 text-xs font-display"><i class="fa-solid fa-expand mr-1"></i>ເບິ່ງເຕັມ</button></div>` : ''}
       <div class="flex gap-2 mt-2">
         <button onclick="verifyOrder('${o.id}', true)" class="flex-1 py-2 rounded-lg bg-green-500/20 text-green-400 text-xs font-display hover:bg-green-500/30">ອະນຸມັດ</button>
         <button onclick="verifyOrder('${o.id}', false)" class="flex-1 py-2 rounded-lg bg-red-500/20 text-red-400 text-xs font-display hover:bg-red-500/30">ປະຕິເສດ</button>
@@ -1611,9 +1635,11 @@ function renderAdminPayments(){
     </div>`;
   }).join('') || `<div class="col-span-full text-center py-10 text-mist-400"><i class="fa-solid fa-check-double text-3xl mb-2"></i><p>ບໍ່ມີການຊຳລະທີ່ລໍຖ້າກວດສອບ</p></div>`;
 }
-function verifyOrder(orderId, approve){
+async function verifyOrder(orderId, approve){
+  try{ await pullAdminDataFromFirestore(); }catch(e){}
   const orders = loadDB(DB_KEYS.orders,[]);
   const order = orders.find(o=>o.id===orderId); if(!order) return;
+  if(order.status!=='pending_verification'){ renderAdminPayments(); return toastErr('ອໍເດີນີ້ຖືກດຳເນີນການແລ້ວ'); }
   order.status = approve? 'completed':'rejected';
   order.verifiedAt = nowISO();
   if(approve){
@@ -1632,6 +1658,11 @@ function verifyOrder(orderId, approve){
   }
   saveDB(DB_KEYS.orders, orders);
   if(approve){ notifyUser(order.userId, 'ການຊຳລະເງິນຖືກຢືນຢັນ', 'ອໍເດີຂອງທ່ານສຳເລັດແລ້ວ! ເບິ່ງລະຫັດໄອດີໄດ້ທີ່ ປະຫວັດການສັ່ງຊື້ ຫຼື ເບິ່ງລະຫັດທີຊື້ມາ.'); }
+  else if(order.paymentMethod==='balance'){
+    // paid from wallet at purchase time -> give the money back on reject
+    try{ await adjustUserBalance(order.userId, order.amount); }catch(e){ console.warn(e); toastErr('ຄືນເງິນບໍ່ສຳເລັດ'); }
+    notifyUser(order.userId, 'ອໍເດີຖືກປະຕິເສດ', `ຄືນເງິນ ₭${fmtK(order.amount)} ເຂົ້າກະເປົາຂອງທ່ານແລ້ວ.`);
+  }
   else { notifyUser(order.userId, 'ການຊຳລະເງິນຖືກປະຕິເສດ', 'ກະລຸນາກວດສອບສະລິບການໂອນເງິນ ຫຼື ຕິດຕໍ່ແອດມິນ.'); }
   log('PAYMENT_'+(approve?'APPROVE':'REJECT'), `Order ${orderId}`);
   renderAdminPayments(); renderAdminOrders(); renderAdminOverview();
@@ -1674,8 +1705,7 @@ function broadcastNotification(){
   const message = document.getElementById('broadcastMsg').value.trim();
   if(!title||!message) return toastErr('ກະລຸນາປ້ອນຫົວຂໍ້ ແລະ ຂໍ້ຄວາມ');
   const users = loadDB(DB_KEYS.users,[]);
-  users.forEach(u=> u.notifications.push({ id:uid('ntf'), title, message, read:false, at: nowISO() }));
-  saveDB(DB_KEYS.users, users);
+  users.forEach(u=> notifyUser(u.id, title, message));
   document.getElementById('broadcastTitle').value=''; document.getElementById('broadcastMsg').value='';
   toastOk(`ສົ່ງແຈ້ງເຕືອນໃຫ້ຜູ້ໃຊ້ ${users.length} ຄົນສຳເລັດ`);
 }
