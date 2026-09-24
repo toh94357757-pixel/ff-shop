@@ -608,10 +608,13 @@ async function pullAdminDataFromFirestore(){
       const remote = d.data() && d.data().data;
       if(remote === undefined || remote === null) return;
       if(Array.isArray(remote)){
-        const local = loadDB(DB_KEYS[key], []);
-        const merged = [...remote];
-        local.forEach(l=>{ if(l && l.id && !merged.some(m=>m.id===l.id)) merged.push(l); });
-        localStorage.setItem(DB_KEYS[key], JSON.stringify(merged));
+        // FIX: the cloud copy is the single source of truth for these lists.
+        // Previously this merged in any locally-cached item missing from the
+        // cloud, which meant a product/order/etc an admin just deleted would
+        // get silently re-added on the very next pull (every tab switch
+        // pulls) because the deletion, once synced, made it "local-only"
+        // relative to the (now correct) cloud array — so delete never stuck.
+        localStorage.setItem(DB_KEYS[key], JSON.stringify(remote));
       } else {
         localStorage.setItem(DB_KEYS[key], JSON.stringify(remote));
       }
